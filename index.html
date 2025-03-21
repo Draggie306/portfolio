@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>
+    <title>Oliver Ling | Student, Developer, Full Stack Engineer</title>
+    <meta name = "description" content = "Oliver Ling is a student at the University of Nottingham, studying Computer Science. He has experience in full stack development, including TypeScript/JavaScript, React, Next.js, C, C#, Java, Python, HTML, CSS, and SQL.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1.5rem;
+            padding: 0;
+            background-color: rgb(16, 16, 20);
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        .main-grid-layout {
+            display: flex;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            
+        }
+
+        @media (max-width: 568px) {
+            main-grid-layout {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .main-grid-project-card {
+            outline-color: transparent;
+            outline-offset: .75rem;
+            outline-style: solid;
+            outline-width: 0;
+            border-radius: .75rem; /* creates curved corner */
+            overflow: hidden; /* keeps content inside the rounded corners */
+            position: relative;
+            transition: transform 0.4s ease;
+            background-color: rgba(30, 30, 34, 0.7);
+            padding: 1rem;
+        }
+
+        .main-grid-project-card img, 
+        .main-grid-project-card h2, 
+        .main-grid-project-card p {
+            transition: all 0.4s ease;
+            transform-origin: center;
+            text-align: center;
+        }
+
+        @keyframes outline-appear {
+            0% {
+                outline-offset: 1.1rem; /* outwards and coming in */
+                outline-color: rgba(255, 255, 255, 0.2); 
+                outline-width: 1px;
+            }
+            40% { 
+                outline-offset: 0.4rem; /* Overshoot inward a bit */
+                outline-width: 5px;
+            }
+            100% { 
+                outline-offset: 0.5rem; /* Final position */
+                outline-color: rgba(255, 255, 255, 0.5);
+                outline-width: 4px;
+            }
+        }
+
+        @keyframes outline-disappear {
+            0% {
+                outline-offset: 0.5rem; /* Final position */
+                outline-color: rgba(255, 255, 255, 0);
+                outline-width: 4px;
+            }
+            40% { 
+                outline-offset: 0.4rem; /* Overshoot inward a bit */
+                outline-width: 5px;
+            }
+            100% { 
+                outline-offset: 1.1rem; /* outwards and coming in */
+                outline-color: rgba(255, 255, 255, 0.2);
+            }
+        }
+        
+        .main-grid-project-card-animator:hover {
+            animation: outline-appear 0.4s forwards;
+            transform: scale(1.02);
+            background-color: rgba(40, 40, 44, 0.8);
+        }
+
+        .main-grid-project-card-animator:not(:hover) {
+            animation: outline-disappear 0.4s forwards;
+            transform: scale(1);
+            background-color: rgba(30, 30, 34, 0.7);
+        }
+
+        /* Content animations */
+        .main-grid-project-card:hover img {
+            transform: scale(1.05);
+            filter: blur(0.2rem) brightness(1.1);
+        }
+
+        .main-grid-project-card:hover h2 {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            transform: translateY(3px);
+        }
+
+        .main-grid-project-card img {
+            width: 100%;
+            border-radius: 0.5rem;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Oliver Ling</h1>
+        <p>A student at the University of Nottingham, studying Computer Science. Experienced in full stack development.</p>
+        <nav>
+            <a href = "cv.pdf">CV</a>
+            <a href = "https://github.com/Draggie306">GitHub</a>
+            <a href = "https://www.linkedin.com/in/oliver-ling">LinkedIn</a>
+            <a href = "mailto:o@geog.uk">Email</a>
+        </nav>
+    </header>
+
+    <!-- Main grid layout -->
+    <section>
+        <div class = "main-grid-layout">
+            <div class="main-grid-project-card">
+                <img src = "assets/images/stories.png" alt = "Stories">
+                <h2>iBaguette Stories</h2>
+            </div>
+            <div class = "main-grid-project-card">
+                <img src = "assets/images/stories.png" alt = "Project 2">
+                <h2>Study</h2>
+            </div> 
+            <div class = "main-grid-project-card">
+                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+                <h2>Patient Assistance</h2>
+            </div>
+        </div>
+    </section>
+
+<script>
+    // Add a class for each card to tell it to animate
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.main-grid-project-card');
+        cards.forEach(card => {
+            card.classList.add('main-grid-project-card-animator');
+        });
+    });
+    
+</script>
+</body>
+</html>
