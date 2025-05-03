@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <head>
-    <title>Oliver Ling | Student, Developer, Full Stack Engineer</title>
-    <meta name = "description" content = "An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experience in full stack development, including TypeScript/JavaScript, React, Next.js, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
-
+    <title>Oliver Ling | Student, Developer, Researcher, Full Stack Software Engineer</title>
+    <meta name = "description" content = "An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            display: flex;
+            flex-direction: column;
             font-family: Arial, sans-serif;
-            margin: 1.5rem;
             padding: 0;
             background-color: rgb(16, 16, 20);
             color: rgb(233, 233, 233);
             user-select: none;
+            text-rendering: optimizeLegibility;
+            scroll-behavior: smooth;
+            
+            /* Add some space on the side! */
+            margin-left: 5%;
+            margin-right: 5%;
+
+            margin-top: 3%;
         }
 
         /* Top header "navbar" colour */
@@ -34,6 +43,33 @@
             grid-template-columns: auto auto auto;
             grid-gap: 20px;
             padding: 10px;
+            text-align: center;
+        }
+
+        #title-projects {
+            margin-left: 5%;
+            > #mainText {
+                text-decoration: underline;
+            }
+        }
+
+        section {
+            margin-bottom: 4rem;
+            display: block;
+        }
+
+        #orderBy {
+            text-align: left;
+            justify-content:center;
+            color: #000;
+            background-color: rgb(214, 214, 214);
+            outline-color: transparent;
+            outline-offset: .75rem;
+            outline-style: solid;
+            outline-width: 0;
+            border-radius: .5em;
+            height: 1.3rem;
+            margin: auto;
         }
 
         @media (max-width: 768px) {
@@ -55,6 +91,7 @@
             padding: 1rem;
             margin: 0.5rem;
             flex: 1 1 calc(26% - 1rem); /* 3 cards per row with subtracted border gap */
+            /* display: inline-block; */
         }
 
         .main-grid-project-card img, 
@@ -78,7 +115,7 @@
                 outline-color: rgba(255, 255, 255, 0.2); 
                 outline-width: 1px;
             }
-            40% { 
+            60% { 
                 outline-offset: 0.4rem; /* Overshoot inward a bit */
                 outline-width: 5px;
             }
@@ -95,7 +132,7 @@
                 outline-color: rgba(255, 255, 255, 0);
                 outline-width: 4px;
             }
-            60% { 
+            70% { 
                 outline-offset: 0.4rem; /* Overshoot inward a bit */
                 outline-width: 5px;
             }
@@ -121,13 +158,24 @@
         /* Content animations */
         .main-grid-project-card:hover img {
             transform: scale(1.05);
-            filter: blur(0.2rem) brightness(1.1);
+            filter: blur(0.2rem) brightness(0.3);
         }
 
         .main-grid-project-card:hover h2 {
             color: #ffffff;
             text-shadow: 2 1 28px rgba(177, 177, 177, 0.5);
-            transform: translateY(-100px);
+            transform: translateY(-190px);
+            font-size: xx-large;
+
+
+            /* todo: put glow behind text -- https://codersblock.com/blog/creating-glow-effects-with-css/
+            
+            border-radius: 90%;
+            border-left-width: 100px;
+            background-color:rgba(255, 255, 255, 0.2);
+
+            box-shadow:
+                0 0 10px 1px #fff, */
         }
 
         .main-grid-project-card img {
@@ -137,17 +185,45 @@
         }
 
         .main-grid-project-card:hover h3 {
-            display: inline-block; /* show the description on hover */
-            font-size: 0.5rem;
-            margin: 0.5rem 0;
+            display: block;
+            font-size: 1rem;
             color: rgba(255, 255, 255, 0.8);
             animation: 0.4s move-up forwards;
             transform: translateY(0); /* start from the bottom */
         }
 
+        .main-grid-project-card:not(:hover) h3 {
+            /* font-size: 0px; */
+            color: rgba(255, 255, 255, 0.8);
+            animation: 0.4s move-down forwards;
+            /* transform: translateY(-100px); */
+            /* display: none; */
+        }
+
         @keyframes move-up {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100px); }
+            0% {
+                transform: translateY(0); 
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% { 
+                transform: translateY(-100px); 
+                opacity: 1;
+            }
+        }
+
+        @keyframes move-down {
+            0% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
         }
 
 
@@ -189,74 +265,125 @@
 </head>
 <body>
     <section>
-        <header>
-            <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h2>
-            <p>Hello! I'm Oliver, an undergrad CS with AI student at the University of Nottingham. I love making software, websites and utilities that have positive tangible, real-world outcomes. <span><a href="#about">Read more about me ></a><span></p>
-            <nav class = "nav">
-                <a href = "cv.pdf" target="_blank">CV</a> |
-                <a href = "https://github.com/Draggie306" target="_blank">GitHub</a> |
-                <a href = "https://www.linkedin.com/in/oliver-ling" target="_blank">LinkedIn</a> |
-                <a href = "mailto:o@geog.uk" target="_blank">Email</a>
-            </nav>
-        </header>
+        <div>
+            <header>
+                <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h1>
+                <p>Hello! I'm Oliver, an undergrad CS with AI student at the University of Nottingham. I love making software, websites and utilities that have positive tangible, real-world outcomes. <span><a href="#about">Read more about me ></a></span></p>
+                <nav class = "nav">
+                    <a href = "https://github.com/Draggie306" target="_blank">GitHub</a> |
+                    <a href = "https://www.linkedin.com/in/oliver-ling" target="_blank">LinkedIn</a> |
+                    <a href = "https://cdn.iBaguette.com/CV.pdf" target="_blank">CV</a> |
+                    <a href = "mailto:oliver@geog.uk" target="_blank">Email</a>
+                </nav>
+            </header>
+        </div>
     </section>
 
     <!-- Main grid layout -->
     <section>
-        <h1>My Projects</h1>
+        
+        <div id="title-projects-container">
+            <h1 id = "title-projects"><span id="mainText">My Projects</span><span id="secondaryText">, ordered by: </span>
+
+            <label for = "orderBy"></label>
+            <select name="orderBy" id="orderBy">
+                <option value="coolness">Coolness</option>
+                <option value="recency">Recency</option>
+                <option value="stars">GitHub Stars</option>
+                <option value="popularity">Popularity</option>
+            </select>
+        </div>
+
         <div class = "main-grid-layout">
             <div class="main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Stories">
-                <h2>iBaguette Stories</h2>
-                <h3>A web experience focused on UI and pure HTML and CSS. A playground to publish some of my writing.</h3>
+                <h2>Stories</h2>
+                <h3 class="project-card-desc">
+                    A web experience focused on UI and UX, based on pure HTML and CSS with minimal scripting. Also a playground to publish some of my writing.                </h3>
             </div>
             <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 2">
+                <img src = "assets/images/study.png" alt = "Project 2">
                 <h2>Study</h2>
+                <h3 class="project-card-desc">
+                    A revolutionary new study platform for UK students built with React and the latest full-stack web tech. 
+                    It allows users to browse, search and take inspiration from real GCSE and A Level exam papers. It's the only comprehensive repository of NEAs, EPQs and personal statements.
+                    The site also allows advanced filtering such as seeing uni-specific successful applications, has an authentication/accounts system, and upload functionality for your own resources!
+                </h3>
             </div> 
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Patient Assistance</h2>
+                <h3 class="project-card-desc">
+                    An installable webapp allowing medical patients in need of care to quickly request and receive help.
+                </h3>
             </div>
             <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+                <img src = "assets/images/kaspersky.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Kaspersky to CSV</h2>
+                <h3 class="project-card-desc">
+                    A practical utility program that uses rule-based evaluation to convert Kaspersky Password Manager's unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts. 
+                </h3>
             </div>
             <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+                <img src = "assets/images/geog.uk.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>geog.uk</h2>
+                <h3 class="project-card-desc">
+                    Inspired by my multi-disciplinary love for many subjects, this is a platform to connect and collaborate with passionate geographers across the UK.
+                </h3>
             </div>
             <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+                <img src = "assets/images/ping.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Infinite Ping Test</h2>
+                <h3 class="project-card-desc">
+                    A utility site used to measure and analyse realtime ping RTT, but for an indefinite duration.
+                </h3>
             </div>
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Draggie Games</h2>
+                <h3 class="project-card-desc">
+                    A platform to create, download, and test games and programs, featuring a desktop download and daemon process, full auth functionality, games licensing and backend storage hosting. 
+                </h3>
             </div>
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Project Saturnian</h2>
+                <h3 class="project-card-desc">
+                    My A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens, escape.
+                </h3>
             </div>
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>iBaguette</h2>
+                <h3 class="project-card-desc">
+                    My main website with articles, information and more.
+                </h3>
             </div>
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Cheat Sheets</h2>
+                <h3 class="project-card-desc">
+                    A revision resource site full of hand-crafted and exam-tailored notes for entire GCSEs and A Level subjects, with all the information needed to get top grades. Exam hints, quick remembering techniques and diagrams all included. Used by over 10,000 students annually.
+                </h3>
             </div>
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>Remembling</h2>
+                <h3 class="project-card-desc">
+                    A new approach to language and information learning with novel psychological research built right in.
+                </h3>
             </div>
-            <div class = "main-grid-project-card">
+            <!-- <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>ImageTools</h2>
-            </div>
+                h3.project-card-desc
+            </div> -->
             <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>BaguetteBot</h2>
+                <h3 class="project-card-desc">
+                    A multi-purpose Discord.py bot for server management, currency, role distibution, bulk updates and administration.
+                </h3>
             </div>
         </div>
     </section>
@@ -305,4 +432,3 @@
     }
 </script>
 </body>
-</html>
