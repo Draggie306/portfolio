@@ -1,0 +1,13 @@
+{
+    // Now uses Cloudflare Static Assets within a Worker: https://developers.cloudflare.com/workers/static-assets/
+    "name": "portfolio",
+    "main": "index.ts",
+    "compatibility_date": "2025-01-01",
+    "assets": {
+        "run_worker_first": true, // force worker to fire for auth first
+        "directory": "./",
+        "binding": "ASSETS",
+        "html_handling": "drop-trailing-slash"
+        // "not_found_handling": "404-page"
+    }
+}
