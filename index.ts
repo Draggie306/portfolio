@@ -64,56 +64,62 @@ var unauthorised_page = `<!DOCTYPE html>
 
 
 export default {
-  async fetch(request, env, ctx) {
+    async fetch(request, env, ctx) {
 
-    // check login route first
-    const url = new URL(request.url);
-    const path = url.pathname;
+        // Check login route first: early returns
+        const url = new URL(request.url);
+        const path = url.pathname;
 
-    if (path === "/login") {
-        return new Response( login_page, {
-            headers: {"Content-Type": "text/html"}
-        })
-    }
+        if (path === "/login") {
+            return new Response(login_page, {
+                headers: { "Content-Type": "text/html" }
+            })
+        }
 
-    if (path === "/authenticate") {
-        // expecting the query string to be in the format of ?auth_token for some reason
-        const auth_token = url.searchParams.get("auth_token");
-        if (auth_token === "draggie") { // hardcoded expected input auth_token
-            return new Response(JSON.stringify(
-                {
-                    "auth_token": "some_token_here",
-                    "status": 200,
-                }
-            ));
-        } else {
+        // Also return early if path is part of the login
+        if (path === "/authenticate") {
+
+            // With a client-side GET request, the URL will contain ?auth_token=XXX. Parse this
+            const auth_token = url.searchParams.get("auth_token");
+
+            // Hardcoded for now
+            if (auth_token === "draggie") {
+                return new Response(JSON.stringify(
+                    {
+                        "auth_token": "some_token_here",
+                        "status": 200,
+                    }
+                ));
+            }
+            
+            // For all other cases, return 401
             return new Response("Unauthorized", { status: 401 });
         }
-    }
 
-    // if auth auth_token cookie
-    const auth_cookie = request.headers.get("Cookie")?.split("; ").find(row => row.startsWith("auth_token="));
-    const given_token_value = auth_cookie ? auth_cookie.split("=")[1] : null;
+        // If not a login request, check if there is a cookie with the auth_token
+        const auth_cookie = request.headers.get("Cookie")?.split("; ").find(row => row.startsWith("auth_token="));
+        const given_token_value = auth_cookie ? auth_cookie.split("=")[1] : null;
 
-    if (!given_token_value) {
-        return new Response(unauthorised_page, {
-            headers: {"Content-Type": "text/html"},
-            status: 401,
-        });
-    } if (given_token_value !== "some_token_here") {
-        return new Response(unauthorised_page, {
-            headers: {"Content-Type": "text/html"},
-            status: 401,
-        });
-    }
+        if (!given_token_value) {
+            return new Response(unauthorised_page, {
+                headers: { "Content-Type": "text/html" },
+                status: 401,
+            });
+        } if (given_token_value !== "some_token_here") {
+            return new Response(unauthorised_page, {
+                headers: { "Content-Type": "text/html" },
+                status: 401,
+            });
+        }
 
+        // By now, it has passed all checks, so the user has logged in successfully before.
+        // Therefore, return their requested static asset.
 
-    // Return the html
-    return env.ASSETS.fetch(request);
-    // return new Response( html_content, {
-    //     headers: {"Content-Type": "text/html"}
-    // })
-  },
+        return env.ASSETS.fetch(request);
+        // return new Response( html_content, {
+        //     headers: {"Content-Type": "text/html"}
+        // })
+    },
 };
 
 
