@@ -13,6 +13,7 @@
 let login_page = `<!DOCTYPE html>
 <head>
     <title>Protected Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
     <h1>Login</h1>
@@ -54,6 +55,7 @@ async function handleSubmit() {
 var unauthorised_page = `<!DOCTYPE html>
 <head>
     <title>Unauthorised</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
     <h1>Unauthorised</h1>

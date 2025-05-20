@@ -2,7 +2,7 @@
     // Now uses Cloudflare Static Assets within a Worker: https://developers.cloudflare.com/workers/static-assets/
     "name": "portfolio",
     "main": "index.ts",
-    "compatibility_date": "2025-01-01",
+    "compatibility_date": "2025-05-05",
     "assets": {
         "run_worker_first": true, // force worker to fire for auth first
         "directory": "./",

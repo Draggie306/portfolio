@@ -182,7 +182,7 @@ header {
 
 .main-grid-project-card-animator:hover, .animation-hover:hover {
     animation: outline-appear 0.4s forwards;
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
     background-color: rgba(40, 40, 44, 0.8);
 }
 
