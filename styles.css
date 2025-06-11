@@ -186,7 +186,7 @@ header {
     background-color: rgba(40, 40, 44, 0.8);
 }
 
-.main-grid-project-card-animator:not(:hover), .animation-hover:not(:hover) {
+.main-grid-project-card-animator.has-been-hovered:not(:hover), .animation-hover.has-been-hovered:not(:hover) {
     animation: outline-disappear 0.3s forwards;
     transform: scale(1);
     background-color: rgba(30, 30, 34, 0.7);

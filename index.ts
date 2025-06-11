@@ -11,10 +11,11 @@
 
 // Default login page
 let login_page = `<!DOCTYPE html>
+
 <head>
     <title>Protected Content</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
 <body>
     <h1>Login</h1>
     <form>
@@ -24,10 +25,10 @@ let login_page = `<!DOCTYPE html>
     <button onclick="handleSubmit()">Submit</button>
 </body>
 <script>
-async function handleSubmit() {
-    let auth_token = document.getElementById("auth_token").value;
+    async function handleSubmit() {
+        let auth_token = document.getElementById("auth_token").value;
 
-    let response = await fetch(\`/authenticate?auth_token=\${auth_token}\`);
+        let response = await fetch(\`/authenticate?auth_token=\${auth_token}\`);
 
     // prevent object already being read
     let response_text = await response.text();
@@ -42,25 +43,26 @@ async function handleSubmit() {
     console.log("auth_token: " + auth_token);
 
     // passed the check!
-    document.cookie = \`auth_token=\${auth_token}; path=/;\`;
+    document.cookie = \`auth_token=\${auth_token}; path=/;s\`;
 
     console.log("redirecting to /");
     window.location.href = "/";
 }
 
 </script>
+
+</html>
 `
 
 // Default unauthorised page (expected)
 var unauthorised_page = `<!DOCTYPE html>
 <head>
     <title>Unauthorised</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
     <h1>Unauthorised</h1>
     <p>You are not authorised to view this page.</p>
-    <p>You may be able to login <a href="/login">here</a>.</p>
+    <p>To view the beta version of this page, you may be able to login <a href="/login">here</a>.</p>
 </body>
 `
 
