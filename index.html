@@ -152,6 +152,10 @@
         const cards = document.querySelectorAll('.main-grid-project-card');
         cards.forEach(card => {
             card.classList.add('main-grid-project-card-animator');
+            // add class on first hover to enable exit animation only afterward
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('has-been-hovered');
+            }, { once: true });
         });
         typeText(); 
     });
@@ -181,3 +185,4 @@
     }
 </script>
 </body>
+</html>
