@@ -69,9 +69,13 @@ a:not(:hover) {
     align-items: stretch;
     grid-template-columns: auto auto auto;
     grid-template-rows: minmax(0, 1fr);
-    grid-gap: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 4rem;
     padding: 10px;
     text-align: center;
+
+    /* Add decent gap */
+    margin-bottom: 10rem;
 }
 
 /* "My Projects h1 */
@@ -99,14 +103,21 @@ h1, #title-projects {
 }
 
 .projectButtonContainer {
-    display: none;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: self-end;
-    margin-top: 1em;
+  display: none;
+
+  /* 03/07/2025 Fixes button alignment issues when nested - fix by Copilot (04-mini) */
+  position: absolute;
+  bottom: 1rem;          /* pin to bottom, adjust as needed */
+  left: 50%;             /* start at half‐width */
+  transform: translateX(-50%); /* shift back by half its own width */
+  margin: 0;             /* clear out the old margins */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap:0px 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .main-grid-layout {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -149,10 +160,11 @@ h1, #title-projects {
     border-radius: .75rem; /* creates curved corner */
     overflow: hidden; /* keeps content inside the rounded corners */
     position: relative;
+    align-items: center;
     transition: transform 0.4s ease;
     background-color: rgba(30, 30, 34, 0.7);
     padding: 1rem;
-    margin: 1.5rem;
+    margin: 1.3rem;
     flex: 1 1 calc(26% - 1rem); /* 3 cards per row with subtracted border gap */
     /* display: inline-block; */
     
@@ -166,19 +178,34 @@ h1, #title-projects {
     transition: all 0.4s ease;
     transform-origin: center;
     text-align: center;
-
+    width: 100%;
     /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
     position: absolute;
+
+    /* 03/07/2025 Centre elements when offset by padding - fix by Copilot. */
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
 }
 
 /* h3s in the main grid layout for each are the mini descriptions, hidden by default */
 .main-grid-project-card h3 {
     display: none; /* hidden by default */
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.8);   
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
 
     /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
     position: absolute;
+    float:left;            /**/
+    overflow:hidden;       /**/
+    padding-bottom:0px;
+
+
+    /* 03/07/2025 Centre elements when offset by padding - fix by Copilot. */
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
     
     overflow: hidden;  /* NEW */
     min-width: 0;      /* NEW; needed for Firefox */
@@ -214,6 +241,14 @@ h1, #title-projects {
     }
 }
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 @keyframes outline-appear {
     0% {
@@ -249,21 +284,28 @@ h1, #title-projects {
     }
 }
 
-.main-grid-project-card-animator:hover, .animation-hover:hover {
+/* Content animations */
+.main-grid-project-card-animator:hover {
     animation: outline-appear 0.4s forwards;
-    /* transform: scale(1.02); */
+    transform: scale(1.1);
     background-color: rgba(40, 40, 44, 0.8);
 }
 
-.main-grid-project-card-animator.has-been-hovered:not(:hover), .animation-hover.has-been-hovered:not(:hover) {
+
+.main-grid-project-card-animator.has-been-hovered:not(:hover) {
     animation: outline-disappear 0.3s forwards;
     background-color: rgba(40, 40, 44, 0.8);
 }
 
-/* Content animations */
+/* Same as above but without the scaling */
+.hover-effect:hover {
+    animation: outline-appear 0.4s forwards;
+    background-color: rgba(40, 40, 44, 0.8);
+}
+
 .main-grid-project-card:hover img {
     /* transform: scale(1.05); */
-    filter: blur(0.2rem) brightness(0.2);
+    filter: blur(0.3rem) brightness(0.2);
 }
 
 .main-grid-project-card:hover h2 {
@@ -281,6 +323,11 @@ h1, #title-projects {
 
     box-shadow:
         0 0 10px 1px #fff, */
+}
+
+.main-grid-project-card:hover .projectButtonContainer {
+    display: flex; /* Needed for justify-content */
+    animation: fade-in 0.4s;
 }
 
 .main-grid-project-card img {

@@ -18,10 +18,11 @@
                 <p>Hello! I'm Oliver, an undergrad Computer Science with AI student, currently at the University of
                     Nottingham. I love making software, websites and utilities that have positive, tangible and
                     real-world benefits. Beyond technology, I also enjoy and am passionate about learning & speaking natural langauges, geography and photography, amongst others.
-                    <span><a href="#about">Read more about me ></a></span></p>
+                    <span><a href="#about">Read more about me ></a></span>
+                </p>
                 <nav class="nav">
                     <a href="https://github.com/Draggie306" target="_blank" rel="noreferrer">GitHub</a> |
-                    <a href="https://www.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> |
+                    <a href="https://gb.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> | <!-- gb subdomain seems to allow viewing without authwall -->
                     <a href="https://cdn.iBaguette.com/CV.pdf" target="_blank" rel="noreferrer">CV</a> |
                     <a href="mailto:oliver@geog.uk" target="_blank" rel="noreferrer">Email</a>
                 </nav>
@@ -37,7 +38,7 @@
                     </span></h1>
 
                 <label for="orderByLabel"></label>
-                <select name="orderByLabel" class="animation-hover" id="orderByLabel">
+                <select name="orderByLabel" class="hover-effect" id="orderByLabel">
                     <option value="coolness">Coolness</option>
                     <option value="recency">Recency</option>
                     <option value="stars">GitHub Stars</option>
@@ -50,27 +51,32 @@
             <div class="main-grid-project-card">
                 <img src="assets/images/stories.png" alt="Stories">
                 <h2>Stories</h2>
-                <h3 class="project-card-desc">
-                    A web experience focused on UI and UX, based on pure HTML and CSS with minimal scripting. Also a
-                    playground to publish some of my writing.
-                </h3>
+                <div id="project-card-revealing-items">
+                    <h3 class="project-card-desc">
+                        A web experience, focused on UI and UX, written in pure HTML and CSS with minimal scripting and zero AI use. Also a
+                        playground to publish some of my creative writing.
+                    </h3>
 
-                <div id="storiesButtonContainer" class="projectButtonContainer">
-                    <button id="storiesRepo" class="repo-button">View Repository</button>
-                    <button id="storiesOpen" class="open-button">Open</button>
+                    <div id="storiesButtonContainer" class="projectButtonContainer">
+                        <button id="storiesRepo" class="repo-button">View Repository</button>
+                        <button id="storiesOpen" class="open-button">Open site</button>
+                    </div>
                 </div>
             </div>
             <div class="main-grid-project-card">
                 <img src="assets/images/study.png" alt="Project 2">
                 <h2>Study</h2>
                 <h3 class="project-card-desc">
-                    A revolutionary new study platform for UK students built with React and the latest full-stack web
-                    tech.
-                    It allows users to browse, search and take inspiration from real GCSE and A Level exam papers. It's
+                    A revolutionary new study platform for UK students, using the latest full-stack web
+                    tech like React and Next.js.
+                    It allows users to upload, browse, search and learn from real, marked exam papers. It's
                     the only comprehensive repository of NEAs, EPQs and personal statements.
-                    The site also allows advanced filtering such as seeing uni-specific successful applications, has an
-                    authentication/accounts system, and upload functionality for your own resources!
                 </h3>
+
+                <div class="projectButtonContainer">
+                    <button id="studyRepo" class="repo-button">View Repository</button>
+                    <button id="studyOpen" class="open-button">Open site</button>
+                </div>
             </div>
             <div class="main-grid-project-card">
                 <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
@@ -79,6 +85,11 @@
                     An installable webapp allowing medical patients requiring care to quickly request and receive help.
                     Tried and tested!
                 </h3>
+
+                <div class="projectButtonContainer">
+                    <button id="patientRepo" class="repo-button">View Repository</button>
+                    <button id="patientOpen" class="open-button">Open site</button>
+                </div>
             </div>
             <div class="main-grid-project-card">
                 <img src="assets/images/kaspersky.png" alt="Project 3" class="main-grid-project-card-image">
@@ -87,6 +98,11 @@
                     A practical utility program that uses rule-based evaluation to convert Kaspersky Password Manager's
                     unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.
                 </h3>
+
+                <div class="projectButtonContainer">
+                    <button id="kasperskyRepo" class="repo-button">View Repository</button>
+                    <button id="kasperskyOpen" class="open-button">Open site</button>
+                </div>
             </div>
             <div class="main-grid-project-card">
                 <img src="assets/images/geog.uk.png" alt="Project 3" class="main-grid-project-card-image">
@@ -95,13 +111,23 @@
                     Inspired by my multi-disciplinary love for many subjects, this is a platform to connect and
                     collaborate with passionate geographers across the UK.
                 </h3>
+
+                <div class="projectButtonContainer">
+                    <button id="geogRepo" class="repo-button">View Repository</button>
+                    <button id="geogOpen" class="open-button">Open site</button>
+                </div>
             </div>
             <div class="main-grid-project-card">
                 <img src="assets/images/ping.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Infinite Ping Test</h2>
                 <h3 class="project-card-desc">
-                    A utility site used to measure and analyse realtime ping RTT, but for an indefinite duration.
+                    A utility site used to measure and analyse realtime ping RTT, but for an indefinite duration. Built with the websockets API and Cloudflare Workers.
                 </h3>
+
+                <div class="projectButtonContainer">
+                    <button id="pingRepo" disabled class="repo-button">View Repository</button>
+                    <button id="pingOpen" class="open-button">Open site</button>
+                </div>
             </div>
             <div class="main-grid-project-card">
                 <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
