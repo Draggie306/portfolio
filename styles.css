@@ -34,7 +34,7 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 5%;
-    height: 10vh; /* why did I say "do NOT uncomment this"? */
+    /* height: 10vh; why did I say "do NOT uncomment this"? */ /* update, I understand why i said to uncomment it */
 
     /* "Read more about me" text */
     > p > span > a {
@@ -117,9 +117,14 @@ h1, #title-projects {
   gap:0px 15px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
+    body {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
     .main-grid-layout {
         grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 5rem;
     }
 
     header {
@@ -128,6 +133,9 @@ h1, #title-projects {
         justify-content: center;
         align-items: center;
         
+        h1 #name-header {
+            text-align: center;
+        }
 
         /* specific read more text good colour (else very dark) */
         > p {
@@ -146,7 +154,7 @@ h1, #title-projects {
         nav {
             margin-top: 5%;
             margin-bottom: 5%;
-            font-size: large;
+            font-size: larger;
             text-align: center;
         }
     }
