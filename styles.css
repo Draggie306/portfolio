@@ -34,22 +34,48 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 5%;
-    /* height: 10vh; do NOT uncomment this*/
+    height: 10vh; /* why did I say "do NOT uncomment this"? */
 
+    /* "Read more about me" text */
     > p > span > a {
         color: #00acff
         }
 }
 
+/* Colour change hover effect */
+a:hover {
+    color: #8ad8ff;
+    transition: 0.5s;
+}
+
+a:not(:hover) {
+    color: #00acff;
+    transition: 0.5s;
+}
+
+/* Resize top GH | LI | CV links */
+.nav a:hover {
+    font-size: larger;
+}
+
+.nav a:not(:hover) {
+    font-size: smaller;
+}
+
+
+/* Main page grid layouts */
 .main-grid-layout {
     display: grid;
+    align-items: stretch;
     grid-template-columns: auto auto auto;
+    grid-template-rows: minmax(0, 1fr);
     grid-gap: 20px;
     padding: 10px;
     text-align: center;
 }
 
-#title-projects {
+/* "My Projects h1 */
+h1, #title-projects {
     display: inline;
     margin-left: 1em;
     > #mainText {
@@ -126,25 +152,68 @@ header {
     transition: transform 0.4s ease;
     background-color: rgba(30, 30, 34, 0.7);
     padding: 1rem;
-    margin: 0.5rem;
+    margin: 1.5rem;
     flex: 1 1 calc(26% - 1rem); /* 3 cards per row with subtracted border gap */
     /* display: inline-block; */
+    
+    height: 100%;
 }
 
-.main-grid-project-card img, 
+.main-grid-project-card img {}
+
 .main-grid-project-card h2, 
 .main-grid-project-card p {
     transition: all 0.4s ease;
     transform-origin: center;
     text-align: center;
+
+    /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
+    position: absolute;
 }
 
 /* h3s in the main grid layout for each are the mini descriptions, hidden by default */
 .main-grid-project-card h3 {
     display: none; /* hidden by default */
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);   
+
+    /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
+    position: absolute;
+    
+    overflow: hidden;  /* NEW */
+    min-width: 0;      /* NEW; needed for Firefox */
 }
+
+
+.main-grid-project-card:hover h3 {
+    display: block;
+    font-size: 1rem;
+    animation: 0.4s move-up forwards;
+    transform: translateY(0); /* start from the bottom */
+    overflow: hidden;
+}
+
+.main-grid-project-card:not(:hover) h3 {
+    /* font-size: 0px; */
+    animation: 0.7s move-up reverse;
+    /* transform: translateY(-100px); */
+    /* display: none; */
+    overflow: hidden;
+}
+
+@keyframes move-up {
+    0% {
+        opacity: 0;
+    }
+    1% {
+        opacity: 0.0;
+    }
+    100% { 
+        transform: translateY(-100px); 
+        opacity: 1;
+    }
+}
+
 
 @keyframes outline-appear {
     0% {
@@ -166,10 +235,10 @@ header {
 @keyframes outline-disappear {
     0% {
         outline-offset: 0.5rem; /* Final position */
-        outline-color: rgba(255, 255, 255, 0);
+        outline-color: rgba(255, 255, 255, 0.5);
         outline-width: 4px;
     }
-    70% { 
+    60% { 
         outline-offset: 0.4rem; /* Overshoot inward a bit */
         outline-width: 5px;
     }
@@ -188,8 +257,7 @@ header {
 
 .main-grid-project-card-animator.has-been-hovered:not(:hover), .animation-hover.has-been-hovered:not(:hover) {
     animation: outline-disappear 0.3s forwards;
-    transform: scale(1);
-    background-color: rgba(30, 30, 34, 0.7);
+    background-color: rgba(40, 40, 44, 0.8);
 }
 
 /* Content animations */
@@ -221,33 +289,6 @@ header {
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.main-grid-project-card:hover h3 {
-    display: block;
-    font-size: 1rem;
-    animation: 0.4s move-up forwards;
-    transform: translateY(0); /* start from the bottom */
-}
-
-.main-grid-project-card:not(:hover) h3 {
-    /* font-size: 0px; */
-    animation: 0.4s move-up reverse;
-    /* transform: translateY(-100px); */
-    /* display: none; */
-}
-
-@keyframes move-up {
-    0% {
-        opacity: 0;
-    }
-    1% {
-        opacity: 0.0;
-    }
-    100% { 
-        transform: translateY(-100px); 
-        opacity: 1;
-    }
-}
-
 
 /* New: Bottom sticky bar that shows the page */
 
@@ -270,7 +311,7 @@ header {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
