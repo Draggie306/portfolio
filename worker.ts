@@ -11,15 +11,16 @@
 
 // Default login page
 let login_page = `<!DOCTYPE html>
-
+<html lang="en">
 <head>
     <title>Protected Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <h1>Login</h1>
     <form>
-        <label for="auth_token">auth_token:</label><br>
+        <label for="auth_token">Valid tester auth_token required:</label><br>
         <input type="text" id="auth_token" name="auth_token"><br><br>
     </form>
     <button onclick="handleSubmit()">Submit</button>
@@ -30,24 +31,24 @@ let login_page = `<!DOCTYPE html>
 
         let response = await fetch(\`/authenticate?auth_token=\${auth_token}\`);
 
-    // prevent object already being read
-    let response_text = await response.text();
-    console.log(response_text);
+        // prevent object already being read
+        let response_text = await response.text();
+        console.log(response_text);
 
-    if (response.status !== 200) {
-        alert("Invalid auth_token");
-        return;
+        if (response.status !== 200) {
+            alert("Invalid auth_token");
+            return;
+        }
+
+        auth_token = JSON.parse(response_text).auth_token;
+        console.log("auth_token: " + auth_token);
+
+        // passed the check!
+        document.cookie = \`auth_token=\${auth_token}; path=/;s\`;
+
+        console.log("redirecting to /");
+        window.location.href = "/";
     }
-
-    auth_token = JSON.parse(response_text).auth_token;
-    console.log("auth_token: " + auth_token);
-
-    // passed the check!
-    document.cookie = \`auth_token=\${auth_token}; path=/;s\`;
-
-    console.log("redirecting to /");
-    window.location.href = "/";
-}
 
 </script>
 
@@ -56,14 +57,17 @@ let login_page = `<!DOCTYPE html>
 
 // Default unauthorised page (expected)
 var unauthorised_page = `<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Unauthorised</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <h1>Unauthorised</h1>
     <p>You are not authorised to view this page.</p>
     <p>To view the beta version of this page, you may be able to login <a href="/login">here</a>.</p>
 </body>
+</html>
 `
 
 
