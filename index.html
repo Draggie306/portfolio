@@ -1,21 +1,29 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <title>Oliver Ling | Student, Developer, Researcher, Full Stack Software Engineer</title>
-    <meta name = "description" content = "An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
+    <meta name="description"
+        content="An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer> </script>
 </head>
+
 <body>
     <section>
         <div>
             <header>
                 <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h1>
-                <p>Hello! I'm Oliver, an undergrad Computer Science with AI student, currently at the University of Nottingham. I love making software, websites and utilities that have positive, tangible and real-world outcomes. I also enjoy learning & speaking natural langauges, photography, and geography. <span><a href="#about">Read more about me ></a></span></p>
-                <nav class = "nav">
-                    <a href = "https://github.com/Draggie306" target="_blank" rel="noreferrer">GitHub</a> |
-                    <a href = "https://www.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> |
-                    <a href = "https://cdn.iBaguette.com/CV.pdf" target="_blank" rel="noreferrer">CV</a> |
-                    <a href = "mailto:oliver@geog.uk" target="_blank" rel="noreferrer">Email</a>
+                <p>Hello! I'm Oliver, an undergrad Computer Science with AI student, currently at the University of
+                    Nottingham. I love making software, websites and utilities that have positive, tangible and
+                    real-world benefits. Beyond technology, I also enjoy and am passionate about learning & speaking natural langauges, geography and photography, amongst others.
+                    <span><a href="#about">Read more about me ></a></span></p>
+                <nav class="nav">
+                    <a href="https://github.com/Draggie306" target="_blank" rel="noreferrer">GitHub</a> |
+                    <a href="https://www.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> |
+                    <a href="https://cdn.iBaguette.com/CV.pdf" target="_blank" rel="noreferrer">CV</a> |
+                    <a href="mailto:oliver@geog.uk" target="_blank" rel="noreferrer">Email</a>
                 </nav>
             </header>
         </div>
@@ -25,9 +33,10 @@
     <section>
         <section>
             <div id="title-projects-container">
-                <h1 id = "title-projects"><span id="mainText">My Projects</span><span id="secondaryText">, ordered by: </span></h1>
+                <h1 id="title-projects"><span id="mainText">My Projects</span><span id="secondaryText">, ordered by:
+                    </span></h1>
 
-                <label for = "orderByLabel"></label>
+                <label for="orderByLabel"></label>
                 <select name="orderByLabel" class="animation-hover" id="orderByLabel">
                     <option value="coolness">Coolness</option>
                     <option value="recency">Recency</option>
@@ -37,12 +46,13 @@
             </div>
         </section>
 
-        <div class = "main-grid-layout">
+        <div class="main-grid-layout">
             <div class="main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Stories">
+                <img src="assets/images/stories.png" alt="Stories">
                 <h2>Stories</h2>
                 <h3 class="project-card-desc">
-                    A web experience focused on UI and UX, based on pure HTML and CSS with minimal scripting. Also a playground to publish some of my writing.
+                    A web experience focused on UI and UX, based on pure HTML and CSS with minimal scripting. Also a
+                    playground to publish some of my writing.
                 </h3>
 
                 <div id="storiesButtonContainer" class="projectButtonContainer">
@@ -50,76 +60,88 @@
                     <button id="storiesOpen" class="open-button">Open</button>
                 </div>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/study.png" alt = "Project 2">
+            <div class="main-grid-project-card">
+                <img src="assets/images/study.png" alt="Project 2">
                 <h2>Study</h2>
                 <h3 class="project-card-desc">
-                    A revolutionary new study platform for UK students built with React and the latest full-stack web tech. 
-                    It allows users to browse, search and take inspiration from real GCSE and A Level exam papers. It's the only comprehensive repository of NEAs, EPQs and personal statements.
-                    The site also allows advanced filtering such as seeing uni-specific successful applications, has an authentication/accounts system, and upload functionality for your own resources!
+                    A revolutionary new study platform for UK students built with React and the latest full-stack web
+                    tech.
+                    It allows users to browse, search and take inspiration from real GCSE and A Level exam papers. It's
+                    the only comprehensive repository of NEAs, EPQs and personal statements.
+                    The site also allows advanced filtering such as seeing uni-specific successful applications, has an
+                    authentication/accounts system, and upload functionality for your own resources!
                 </h3>
-            </div> 
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            </div>
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Patient Assistance</h2>
                 <h3 class="project-card-desc">
-                    An installable webapp allowing medical patients requiring care to quickly request and receive help. Tried and tested!
+                    An installable webapp allowing medical patients requiring care to quickly request and receive help.
+                    Tried and tested!
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/kaspersky.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/kaspersky.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Kaspersky to CSV</h2>
                 <h3 class="project-card-desc">
-                    A practical utility program that uses rule-based evaluation to convert Kaspersky Password Manager's unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts. 
+                    A practical utility program that uses rule-based evaluation to convert Kaspersky Password Manager's
+                    unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/geog.uk.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/geog.uk.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>geog.uk</h2>
                 <h3 class="project-card-desc">
-                    Inspired by my multi-disciplinary love for many subjects, this is a platform to connect and collaborate with passionate geographers across the UK.
+                    Inspired by my multi-disciplinary love for many subjects, this is a platform to connect and
+                    collaborate with passionate geographers across the UK.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/ping.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/ping.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Infinite Ping Test</h2>
                 <h3 class="project-card-desc">
                     A utility site used to measure and analyse realtime ping RTT, but for an indefinite duration.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Draggie Games</h2>
                 <h3 class="project-card-desc">
-                    My A Level project - a platform to create, download, and test games and programs, featuring a desktop download and daemon process, full auth functionality, games licensing and backend storage hosting. 
+                    My A Level project - a platform to create, download, and test games and programs, featuring a
+                    desktop download and daemon process, full auth functionality, games licensing and backend storage
+                    hosting.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Project Saturnian</h2>
                 <h3 class="project-card-desc">
-                    My A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens, escape.
+                    My A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens,
+                    escape.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>iBaguette</h2>
                 <h3 class="project-card-desc">
                     My main website with articles, information and more.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Cheat Sheets</h2>
                 <h3 class="project-card-desc">
-                    A revision resource site full of hand-crafted and exam-tailored notes for entire GCSEs and A Level subjects, with all the information needed to get top grades. Exam hints, quick remembering techniques and diagrams all included. Used by over 10,000 students annually.
+                    A revision resource site full of hand-crafted and exam-tailored notes for entire GCSEs and A Level
+                    subjects, with all the information needed to get top grades. Exam hints, quick remembering
+                    techniques and diagrams all included. Used by over 10,000 students annually.
                 </h3>
             </div>
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>Remembling</h2>
                 <h3 class="project-card-desc">
-                    A new approach to language and information learning with novel psychological research built right in.
+                    A new approach to language and information learning with novel psychological research built right
+                    in.
                 </h3>
             </div>
             <!-- <div class = "main-grid-project-card">
@@ -127,11 +149,12 @@
                 <h2>ImageTools</h2>
                 h3.project-card-desc
             </div> -->
-            <div class = "main-grid-project-card">
-                <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
+            <div class="main-grid-project-card">
+                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
                 <h2>BaguetteBot</h2>
                 <h3 class="project-card-desc">
-                    A multi-purpose Discord.py bot for server management, currency, role distibution, bulk updates and administration.
+                    A multi-purpose Discord.py bot for server management, currency, role distibution, bulk updates and
+                    administration.
                 </h3>
             </div>
         </div>
@@ -139,50 +162,14 @@
 
     <footer class="bottom-sticky-bar">
         <div class="bottom-sticky-bar-content">
-            <a href="/">What I've made</a>
-            <a href="/">What I've done</a>
-            <a href="/">Who I am</a>
-            <!-- One of: what I've made, what I've done, who I am -->
+            <a id="footer-button-what" href="/">Projects & Creations</a>
+            <a id="footer-button-things" href="/things">Activities & Events</a>
+            <a id="footer-button-who" href="/about">More about me</a>
         </div>
     </footer>
 
-<script>
-    // Add a class for each card to tell it to animate
-    document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.main-grid-project-card');
-        cards.forEach(card => {
-            card.classList.add('main-grid-project-card-animator');
-            // add class on first hover to enable exit animation only afterward
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('has-been-hovered');
-            }, { once: true });
-        });
-        typeText(); 
-    });
-    
-    const name_text = "Oliver Ling";
-    const text = name_text.split('');
-    
-    let i = 0;
-    const speed = 100;
-
-    function typeText() { 
-        if (i < text.length) {
-            document.getElementById("typed-text").innerHTML += text[i];
-            i++;
-            setTimeout(typeText, speed);
-        } else {
-            //document.querySelector(".cursor").style.display = "none"; // Hide cursor after typing
-        }
-
-        setTimeout(() => {
-            document.querySelector(".cursor").style.display = "none"; 
-        }, 5500); 
-    }
-
-    let description_data = {
-        "patient_assistance": "Allows patients to get assistance from their carers quickly and for any reason. Made for my mother after surgery.",
-    }
-</script>
+    <script>
+    </script>
 </body>
+
 </html>
