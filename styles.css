@@ -1,3 +1,10 @@
+/*
+
+CSS for all pages on oling.dev
+with a focus on smoothness, intuitive UI/UX and user psychology (Doherty threshold) for maximum satisfaction
+
+*/
+
 body {
     display: flex;
     flex-direction: column;
@@ -55,11 +62,11 @@ a:not(:hover) {
 
 /* Resize top GH | LI | CV links */
 .nav a:hover {
-    font-size: larger;
+    font-size: 110%;
 }
 
 .nav a:not(:hover) {
-    font-size: smaller;
+    font-size: 90%;
 }
 
 
@@ -69,8 +76,8 @@ a:not(:hover) {
     align-items: stretch;
     grid-template-columns: auto auto auto;
     grid-template-rows: minmax(0, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 4rem;
+    grid-column-gap: 1rem;
+    grid-row-gap: 3rem;
     padding: 10px;
     text-align: center;
 
@@ -102,22 +109,64 @@ h1, #title-projects {
     margin: auto;
 }
 
+/* Buttons within each project card 
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 .projectButtonContainer {
-  display: none;
+    display: none;
 
-  /* 03/07/2025 Fixes button alignment issues when nested - fix by Copilot (04-mini) */
-  position: absolute;
-  bottom: 1rem;          /* pin to bottom, adjust as needed */
-  left: 50%;             /* start at half‐width */
-  transform: translateX(-50%); /* shift back by half its own width */
-  margin: 0;             /* clear out the old margins */
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap:0px 15px;
+    /* 03/07/2025 Fixes button alignment issues when nested - fix by Copilot (o4-mini) */
+    position: absolute;
+    bottom: 2.25rem;          /* pin to bottom, adjust as needed */
+    left: 50%;             /* start at half‐width */
+    transform: translateX(-50%); /* shift back by half its own width */
+    margin: 0;             /* clear out the old margins */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    gap: 0px 20px;
+
+    padding: 5px;
 }
 
-@media (max-width: 768px) {
+.projectButtonContainer > button {
+    background-color: #eeeeee;
+    font-size: large; 
+    border-radius: .75em;
+    padding: 3px 10px;
+
+    outline-color: transparent;
+    outline-offset: .75rem;
+    outline-style: solid;
+    outline-width: 0;
+}
+
+.projectButtonContainer > button:hover {
+    /* font-size: larger; */
+    transition: .4s; 
+    background-color: #ffffff;
+}
+
+.projectButtonContainer > button:not(:hover) {
+    /* font-size: large; */
+    transition: .4s; 
+}
+
+/* Specifics for repository/view */
+.repo-button, .open-button {
+    background-color: #ffffff;
+}
+
+/* Override for disabled ones */
+button:disabled, button:disabled:hover {
+    font-size: large !important;
+    transition: none !important; 
+    background-color: #eeeeee !important;
+}
+
+
+
+@media (max-width: 876px) {
     body {
         margin-left: 3%;
         margin-right: 3%;
@@ -160,6 +209,13 @@ h1, #title-projects {
     }
 }
 
+@media (max-width: 1365px) and (min-width: 877px) {
+    .main-grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 5rem;
+    }
+}
+
 .main-grid-project-card {
     outline-color: transparent;
     outline-offset: .75rem;
@@ -176,16 +232,18 @@ h1, #title-projects {
     flex: 1 1 calc(26% - 1rem); /* 3 cards per row with subtracted border gap */
     /* display: inline-block; */
     
-    height: 100%;
+    height: 92%;
 }
-
-.main-grid-project-card img {}
+/* 
+.main-grid-project-card img {} */
 
 .main-grid-project-card h2, 
 .main-grid-project-card p {
+    color: #dbd8d8;
     transition: all 0.4s ease;
     transform-origin: center;
     text-align: center;
+    bottom: .95rem;
     width: 100%;
     /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
     position: absolute;
@@ -196,12 +254,37 @@ h1, #title-projects {
     box-sizing: border-box;
 }
 
+
+.main-grid-project-card:hover h2 {
+    color: #ffffff;
+    text-shadow: 2 1 28px rgba(177, 177, 177, 0.5);
+    bottom: 14rem;
+    font-size: xx-large;
+    text-decoration: underline;
+    text-shadow: white;
+
+    /* todo: put glow behind text -- https://codersblock.com/blog/creating-glow-effects-with-css/
+    
+    border-radius: 90%;
+    border-left-width: 100px;
+    background-color:rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 0 10px 1px #fff, */
+}
+
 /* h3s in the main grid layout for each are the mini descriptions, hidden by default */
 .main-grid-project-card h3 {
+    position: absolute;
     display: none; /* hidden by default */
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
+    margin: 0 17px 0 17px;
+
+    bottom: 1rem;
+
+    /* hide off-screen by shifting down and making transparent */
 
     /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
     position: absolute;
@@ -213,7 +296,6 @@ h1, #title-projects {
     /* 03/07/2025 Centre elements when offset by padding - fix by Copilot. */
     left: 0;
     right: 0;
-    box-sizing: border-box;
     
     overflow: hidden;  /* NEW */
     min-width: 0;      /* NEW; needed for Firefox */
@@ -223,13 +305,15 @@ h1, #title-projects {
 .main-grid-project-card:hover h3 {
     display: block;
     font-size: 1rem;
-    animation: 0.4s move-up forwards;
-    transform: translateY(0); /* start from the bottom */
-    overflow: hidden;
+    top: 7.5rem;
+    
+    /* Doherty Threshold */
+    animation: fade-in-delay 0.4s ease-in-out;
 }
 
 .main-grid-project-card:not(:hover) h3 {
     /* font-size: 0px; */
+    bottom: 6rem;
     animation: 0.7s move-up reverse;
     /* transform: translateY(-100px); */
     /* display: none; */
@@ -244,7 +328,19 @@ h1, #title-projects {
         opacity: 0.0;
     }
     100% { 
-        transform: translateY(-100px); 
+        transform: translateY(-205%); 
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-delay {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }
@@ -286,29 +382,31 @@ h1, #title-projects {
         outline-width: 5px;
     }
     100% { 
-        outline-offset: 1rem; /* outwards and coming in */
+        outline-offset: 1.1rem; /* outwards and coming in */
         outline-color: rgba(255, 255, 255, 0.2);
         outline-width: 0rem;
     }
 }
 
 /* Content animations */
-.main-grid-project-card-animator:hover {
+.main-grid-project-card-animator:hover:not(:disabled) {
     animation: outline-appear 0.4s forwards;
     transform: scale(1.1);
-    background-color: rgba(40, 40, 44, 0.8);
 }
 
 
-.main-grid-project-card-animator.has-been-hovered:not(:hover) {
-    animation: outline-disappear 0.3s forwards;
-    background-color: rgba(40, 40, 44, 0.8);
+.main-grid-project-card-animator.has-been-hovered:not(:hover):not(:disabled) {
+    animation: outline-disappear 0.3s;
 }
 
 /* Same as above but without the scaling */
-.hover-effect:hover {
+.hover-effect-animator:hover {
     animation: outline-appear 0.4s forwards;
-    background-color: rgba(40, 40, 44, 0.8);
+}
+
+/* Same as above but without the scaling */
+.hover-effect-animator.has-been-hovered:not(:hover) {
+    animation: outline-disappear 0.3s forwards;
 }
 
 .main-grid-project-card:hover img {
@@ -316,22 +414,6 @@ h1, #title-projects {
     filter: blur(0.3rem) brightness(0.2);
 }
 
-.main-grid-project-card:hover h2 {
-    color: #ffffff;
-    text-shadow: 2 1 28px rgba(177, 177, 177, 0.5);
-    transform: translateY(-190px);
-    font-size: xx-large;
-
-
-    /* todo: put glow behind text -- https://codersblock.com/blog/creating-glow-effects-with-css/
-    
-    border-radius: 90%;
-    border-left-width: 100px;
-    background-color:rgba(255, 255, 255, 0.2);
-
-    box-shadow:
-        0 0 10px 1px #fff, */
-}
 
 .main-grid-project-card:hover .projectButtonContainer {
     display: flex; /* Needed for justify-content */
@@ -344,6 +426,17 @@ h1, #title-projects {
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
+
+.main-grid-more {
+    text-align: center;
+    align-self: center;
+
+    p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-style: italic;
+    }
+}
 
 /* New: Bottom sticky bar that shows the page */
 

@@ -3,19 +3,48 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM Loaded");
 
     // Fix: to not show the unfocus event, add a class for it only when DOM is loaded 
-    const cards = document.querySelectorAll('.main-grid-project-card');
-    cards.forEach(card => {
-        card.classList.add('main-grid-project-card-animator');
+    const hover_elements = Array.from(document.querySelectorAll('.animation-hover')).concat(Array.from(document.querySelectorAll('.main-grid-project-card')));
+    hover_elements.forEach(domNode => {
+        domNode.classList.add('main-grid-project-card-animator');
         // add class on first hover to enable exit animation only afterward
-        card.addEventListener('mouseenter', function () {
+        domNode.addEventListener('mouseenter', function () {
+        
+            // cancel pending removal
+            if (this._removeTimeout) {
+                clearTimeout(this._removeTimeout);
+                this._removeTimeout = null;
+            }
             this.classList.add('has-been-hovered');
+            }
+        );
+
+        domNode.addEventListener('mouseleave', function () {
+            // schedule removal, but only actually remove if still not hovered
+            this._removeTimeout = setTimeout(() => {
+                if (!this.matches(':hover')) {
+                    this.classList.remove('has-been-hovered');
+                }
+                this._removeTimeout = null;
+            }, 400);
         });
     });
 
-    document.getElementById("orderByLabel").classList.add("animation-hover");
-    document.getElementById("orderByLabel").addEventListener('mouseenter', function () {
-        this.classList.add('has-been-hovered');
+
+    const generic_hovereffect_items = document.querySelectorAll('.hover-effect');
+    generic_hovereffect_items.forEach(node => {
+        node.classList.add('hover-effect-animator');
+        // add class on first hover to enable exit animation only afterward
+        node.addEventListener('mouseenter', function () {
+            this.classList.add('has-been-hovered');
+        });
+
     });
+
+    // document.getElementById("orderByLabel").classList.add("animation-hover");
+    // document.getElementById("orderByLabel").addEventListener('mouseenter', function () {
+    //     this.classList.add('has-been-hovered');
+    // });
+
 
     // Render name typing
 
