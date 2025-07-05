@@ -9,68 +9,6 @@
  */
 
 
-// Default login page
-let login_page = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Protected Content</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-    <h1>Login</h1>
-    <form>
-        <label for="auth_token">Valid tester auth_token required:</label><br>
-        <input type="text" id="auth_token" name="auth_token"><br><br>
-    </form>
-    <button onclick="handleSubmit()">Submit</button>
-</body>
-<script>
-    async function handleSubmit() {
-        let auth_token = document.getElementById("auth_token").value;
-
-        let response = await fetch(\`/authenticate?auth_token=\${auth_token}\`);
-
-        // prevent object already being read
-        let response_text = await response.text();
-        console.log(response_text);
-
-        if (response.status !== 200) {
-            alert("Invalid auth_token");
-            return;
-        }
-
-        auth_token = JSON.parse(response_text).auth_token;
-        console.log("auth_token: " + auth_token);
-
-        // passed the check!
-        document.cookie = \`auth_token=\${auth_token}; path=/;s\`;
-
-        console.log("redirecting to /");
-        window.location.href = "/";
-    }
-
-</script>
-
-</html>
-`
-
-// Default unauthorised page (expected)
-var unauthorised_page = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Unauthorised</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <h1>Unauthorised</h1>
-    <p>You are not authorised to view this page.</p>
-    <p>To view the beta version of this page, you may be able to login <a href="/login">here</a>.</p>
-</body>
-</html>
-`
-
-
 export default {
     async fetch(request, env, ctx) {
 
@@ -79,9 +17,10 @@ export default {
         const path = url.pathname;
 
         if (path === "/login") {
-            return new Response(login_page, {
-                headers: { "Content-Type": "text/html" }
-            })
+            const loginURL = new URL(request.url);
+            loginURL.pathname = "/protected/login.html";
+            return env.ASSETS.fetch(loginURL.toString());
+
         }
 
         // Also return early if path is part of the login
@@ -91,15 +30,17 @@ export default {
             const auth_token = url.searchParams.get("auth_token");
 
             // Hardcoded for now
-            if (auth_token === "draggie") {
+            if (auth_token === env.SUPER_SECRET_AUTH_TOKEN) {
                 return new Response(JSON.stringify(
                     {
-                        "auth_token": "some_token_here",
+                        "auth_token": env.SUPER_SECRET_AUTH_TOKEN,
                         "status": 200,
                     }
                 ));
+            } else {
+                console.log(`${auth_token} is not ${env.SUPER_SECRET_AUTH_TOKEN}!`)
             }
-            
+
             // For all other cases, return 401
             return new Response("Unauthorized", { status: 401 });
         }
@@ -108,16 +49,9 @@ export default {
         const auth_cookie = request.headers.get("Cookie")?.split("; ").find(row => row.startsWith("auth_token="));
         const given_token_value = auth_cookie ? auth_cookie.split("=")[1] : null;
 
-        if (!given_token_value) {
-            return new Response(unauthorised_page, {
-                headers: { "Content-Type": "text/html" },
-                status: 401,
-            });
-        } if (given_token_value !== "some_token_here") {
-            return new Response(unauthorised_page, {
-                headers: { "Content-Type": "text/html" },
-                status: 401,
-            });
+        if ((!given_token_value) || (given_token_value !== env.SUPER_SECRET_AUTH_TOKEN)) {
+            console.log("cookie not entered or is invalid");
+            return await return_protected(request, env, 2);
         }
 
         // By now, it has passed all checks, so the user has logged in successfully before.
@@ -130,4 +64,19 @@ export default {
     },
 };
 
-
+async function return_protected(request, env, protected_page: Number) {
+    if (protected_page == 1) {
+        const loginURL = new URL(request.url);
+        loginURL.pathname = "/protected/login.html";
+        return env.ASSETS.fetch(loginURL.toString());
+    } else if (protected_page == 2) {
+        const loginURL = new URL(request.url);
+        loginURL.pathname = "/protected/unauthorised.html";
+        const asset = await env.ASSETS.fetch(loginURL.toString())
+        console.log("returning altered response");
+        return new Response(asset.body, {
+            status: 401,
+            headers: asset.headers
+        })
+    }
+}
