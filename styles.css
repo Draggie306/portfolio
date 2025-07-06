@@ -32,7 +32,7 @@ body {
 }
 
 nav {
-    font-size: x-large;
+    font-size: 200%;
 }
 
 header {
@@ -201,9 +201,9 @@ button:disabled, button:disabled:hover {
         }
 
         nav {
-            margin-top: 5%;
-            margin-bottom: 5%;
-            font-size: larger;
+            /* 10% gap works well for spacing and 5% left-right keeps one line on phone */
+            margin: 10% 5%;
+            font-size: 150%;
             text-align: center;
         }
     }
@@ -234,8 +234,6 @@ button:disabled, button:disabled:hover {
     
     height: 92%;
 }
-/* 
-.main-grid-project-card img {} */
 
 .main-grid-project-card h2, 
 .main-grid-project-card p {
@@ -243,7 +241,7 @@ button:disabled, button:disabled:hover {
     transition: all 0.4s ease;
     transform-origin: center;
     text-align: center;
-    bottom: .95rem;
+    bottom: .0rem;
     width: 100%;
     /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
     position: absolute;
@@ -281,6 +279,8 @@ button:disabled, button:disabled:hover {
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
     margin: 0 17px 0 17px;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-style: normal;
 
     bottom: 1rem;
 
@@ -422,8 +422,11 @@ button:disabled, button:disabled:hover {
 
 .main-grid-project-card img {
     width: 100%;
-    border-radius: 0.5rem;
+    /* border: dashed 2px;
+    border-color: #727272; */
+    border-radius: 0.75rem;
     transition: transform 0.4s ease, filter 0.4s ease;
+    outline:#8ad8ff;
 }
 
 
@@ -449,7 +452,6 @@ button:disabled, button:disabled:hover {
     background-color: rgba(30, 30, 34, 0.8);
     color: white;
     justify-content: center;
-    align-items: center;
     backdrop-filter: blur(0.5rem); /* you're joking */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -459,8 +461,26 @@ button:disabled, button:disabled:hover {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
+    
+    justify-content: space-evenly;
+    /* flex-basis: 0; */
+}
+
+.bottom-sticky-bar-content > a  {
+    width: 33%;
+    height: 100%;
+    text-align: center;
+    border-left: 2px solid #3f3f3f;
+    align-self: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-button-what {
+    border-left: none !important;
 }
 
 /* typing out effect */
