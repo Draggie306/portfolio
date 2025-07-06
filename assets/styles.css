@@ -74,7 +74,7 @@ a:not(:hover) {
 .main-grid-layout {
     display: grid;
     align-items: stretch;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: minmax(0, 1fr);
     grid-column-gap: 1rem;
     grid-row-gap: 3rem;
@@ -231,6 +231,7 @@ button:disabled, button:disabled:hover {
     margin: 1.3rem;
     flex: 1 1 calc(26% - 1rem); /* 3 cards per row with subtracted border gap */
     /* display: inline-block; */
+    min-width: 0;
     
     height: 92%;
 }
