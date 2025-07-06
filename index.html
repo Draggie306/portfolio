@@ -4,7 +4,7 @@
 <head>
     <title>Oliver Ling | Student, Developer, Researcher, Full Stack Software Engineer</title>
     <meta name="description"
-        content="An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
+        content="An undergrad student at the University of Nottingham, studying Computer Science and AI. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer> </script>
@@ -15,9 +15,9 @@
         <div>
             <header>
                 <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h1>
-                <p>Hello! I'm Oliver, an undergrad Computer Science with AI student, currently at the University of
+                <p>Hello! I'm Oliver, an undergrad Computer Science and AI student, currently at the University of
                     Nottingham. I love making software, websites and utilities that have positive, tangible and
-                    real-world benefits. Beyond technology, I also enjoy and am passionate about learning & speaking natural langauges, geography and photography, amongst others.
+                    real-world benefits. Beyond technology, I also enjoy and am passionate about learning & speaking natural languages, geography and photography, amongst others.
                     <span><a href="#about">Read more about me ></a></span>
                 </p>
                 <nav class="nav">
@@ -47,8 +47,8 @@
             </div>
         </section>
 
-        <div class="main-grid-layout">
-            <div class="main-grid-project-card">
+        <div class="main-grid-layout" id="main-grid-layout">
+            <!-- <div class="main-grid-project-card">
                 <img src="assets/images/stories.png" alt="Stories">
                 <h2>Stories</h2>
                 <div id="project-card-revealing-items">
@@ -62,181 +62,20 @@
                         <button id="storiesOpen" class="open-button animation-hover">Open site</button>
                     </div>
                 </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/study.png" alt="Project 2">
-                <h2>Study</h2>
-                <h3 class="project-card-desc">
-                    Coming soon. A revolutionary new study platform for UK students, using the latest full-stack web
-                    tech like React and Next.js.
-                    It allows users to upload, browse, search and learn from real, marked exam papers. It's
-                    the only comprehensive repository of NEAs, EPQs and personal statements.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="studyRepo" disabled class="repo-button animation-hover">View Repository</button>
-                    <button id="studyOpen" disabled class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Patient Assistance</h2>
-                <h3 class="project-card-desc">
-                    An installable webapp allowing medical patients requiring care to quickly request and receive help.
-                    Tried and tested!
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="patientRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="patientOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/kaspersky.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Kaspersky to CSV</h2>
-                <h3 class="project-card-desc">
-                    A practical utility program that uses rule-based evaluation to convert Kaspersky Password Manager's
-                    unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="kasperskyRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="kasperskyOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/geog.uk.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>geog.uk</h2>
-                <h3 class="project-card-desc">
-                    Inspired by my multi-disciplinary love for many subjects, this is a platform to connect and
-                    collaborate with passionate geographers across the UK.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="geogRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="geogOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/ping.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Infinite Ping Test</h2>
-                <h3 class="project-card-desc">
-                    A utility site used to measure and analyse realtime ping RTT, but for an indefinite duration. Built with the websockets API and Cloudflare Workers.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="pingRepo" disabled class="repo-button animation-hover">View Repository</button>
-                    <button id="pingOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Draggie Games</h2>
-                <h3 class="project-card-desc">
-                    My A Level project - a platform to create, download, and test games and programs, featuring a
-                    desktop download and daemon process, full auth functionality, games licensing and backend storage
-                    hosting.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="dgamesRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="dgamesOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Project Saturnian</h2>
-                <h3 class="project-card-desc">
-                    My A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens,
-                    escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="saturnianRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="saturnianOpen" disabled class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>iBaguette</h2>
-                <h3 class="project-card-desc">
-                    My biggest and first website with articles, revision guides, information and more. Monetised by Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="ibaguetteRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="ibaguetteOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Cheat Sheets</h2>
-                <h3 class="project-card-desc">
-                    A revision resource site full of hand-crafted notes for entire GCSEs and A Level
-                    subjects, with all the information needed to get top grades. Used by over 10,000 students annually.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="cheatsheetsRepo" class="repo-button animation-hover">View Repository</button>
-                    <button id="cheatsheetsOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>Remembling</h2>
-                <h3 class="project-card-desc">
-                    A new approach to language and information learning with novel psychological research built right
-                    in. Currently in beta!
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="rememblingRepo" disabled class="repo-button animation-hover">View Repository</button>
-                    <button id="rememblingOpen" disabled class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
+            </div> -->
             <!-- <div class = "main-grid-project-card">
                 <img src = "assets/images/stories.png" alt = "Project 3" class="main-grid-project-card-image">
                 <h2>ImageTools</h2>
                 h3.project-card-desc
             </div> -->
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>BaguetteBot</h2>
-                <h3 class="project-card-desc">
-                    A multi-purpose Discord.py bot for server management, currency, role distibution, bulk updates and
-                    administration.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="baguettebotRepo" disabled class="repo-button animation-hover">View Repository</button>
-                    <button id="baguettebotOpen" disabled class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-
-            <div class="main-grid-project-card">
-                <img src="assets/images/stories.png" alt="Project 3" class="main-grid-project-card-image">
-                <h2>YouTube Channel</h2>
-                <h3 class="project-card-desc">
-                    My monetised YouTube channel, showcasing UHD video game soundtracks, academic achievements, and more. >2k subscribers and over 2M views.
-                </h3>
-
-                <div class="projectButtonContainer">
-                    <button id="youtubeRepo" disabled class="repo-button animation-hover">View Repository</button>
-                    <button id="youtubeOpen" class="open-button animation-hover">Open site</button>
-                </div>
-            </div>
-
-            <div class="main-grid-more">
-                <p class="more-text">... and more coming soon!</p>
-            </div>
         </div>
     </section>
 
     <footer class="bottom-sticky-bar">
         <div class="bottom-sticky-bar-content">
-            <a id="footer-button-what" href="/">Projects & Creations</a>
-            <a id="footer-button-things" href="/things">Activities & Events</a>
-            <a id="footer-button-who" href="/about">More about me</a>
+            <a id="footer-button-what" href="/">Creations</a>
+            <a id="footer-button-things" href="/things">Events</a>
+            <a id="footer-button-who" href="/about">About</a>
         </div>
     </footer>
 
