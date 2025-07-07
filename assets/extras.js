@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         typeText("typed-text-thingsdone", string_things_done, charlist_things_done)
     }
     else if (window.location.pathname == "/about") {
-        typeText("typed-text-whoiam", string_whoiam, charlist_things_done)
+        // typeText("typed-text-whoiam", string_whoiam, charlist_things_done)
+        cyclePortraitPhotos(); // Start the photo rotator
     }
     else if (window.location.pathname == "/") { // index 
         typeText("typed-text", string_whoiam, charlist_whoaim)
@@ -50,6 +51,34 @@ function typeText(id, charlist) {
     }, 5500);
 }
 
-let description_data = {
-    "patient_assistance": "Allows patients to get assistance from their carers quickly and for any reason. Made for my mother after surgery.",
+const photos = [
+    "/assets/images/features/headshot.png",       // Main default photo - awards
+    "/assets/images/features/jess.png",           // Caius!
+    "/assets/images/features/computerphile.png",  // Play Button
+    "/assets/images/features/caribou.png",        // Canadian Caribou
+];
+
+function preloadImage(url) {
+   var img=new Image();
+   img.src=url;
+   console.log("Preloaded image: " + url);
+}
+
+for (let i = 0; i < photos.length; i++) {
+    preloadImage(photos[i]);
+}
+
+/**
+ * repeatedly cycle through the portrait photos (for the about page)
+ */
+async function cyclePortraitPhotos() {
+    const element = document.getElementById("portrait-photo-rotator");
+
+    let currentIndex = 0;
+    element.src = photos[currentIndex];
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % photos.length;
+        element.src = photos[currentIndex];
+    }, 5000);
 }
