@@ -88,8 +88,8 @@ function repopulateGrid(namedOrder) {
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
-                                    ${(element.isRepoDisabled === false && (element.repoUrl ?? false)) ? `<button id ="${element.name}Repo" class="repo-button animation-hover" onclick="window.open('${element.repoUrl}', '_blank')">View Repository</button>` : ''}
-                                    ${(element.isSiteDisabled === false && (element.siteUrl ?? false)) ? `<button id ="${element.name}Site" class="site-button animation-hover" onclick="window.open('${element.siteUrl}', '_blank')">Open site</button>` : ''}
+                                    ${(element.isRepoHidden === false && (element.repoUrl ?? false)) ? `<button id ="${element.name}Repo" ${element.isRepoDisabled ? 'disabled' : ''} class="repo-button animation-hover" onclick="window.open('${element.repoUrl}', '_blank')">View Repository</button>` : ''}
+                                    ${(element.isSiteHidden === false && (element.siteUrl ?? false)) ? `<button id ="${element.name}Site" ${element.isSiteDisabled ? 'disabled' : ''} class="site-button animation-hover" onclick="window.open('${element.siteUrl}', '_blank')">Open site</button>` : ''}
                                     </div>
                                 </div>`;
     });
@@ -167,45 +167,51 @@ let projects = [
         "repoUrl": "https://github.com/Draggie306/stories",
         "siteUrl": "https://stories.ibaguette.com",
         ratings: {
-            "coolness": 7,
+            "coolness": 7.02,
             "added": 1739035050,
             "stars": 1,
             "popularity": 15 // Jess counts for a lot
         },
         isRepoDisabled: false,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
-        "name": "Study",
-        "desc": "Coming soon. A revolutionary new study platform for UK students, using the latest full-stack web tech like React and Next.js. It allows users to upload, browse, search and learn from real, marked exam papers. It's the only comprehensive repository of NEAs, EPQs and personal statements.",
+        "name": "Study", // Ronaaaaaan
+        "desc": "Coming soon. A brand new study platform, using the latest web tech: React and Next.js. Upload, browse, search and learn from real, marked exam papers - it's the only database of NEAs, EPQs and personal statements like it.",
         "imgUrl": "assets/images/study.png",
         "imgAlt": "Study logo",
         "repoUrl": "https://github.com/iBaguette/study",
         "siteUrl": "https://study.ibaguette.com",
         ratings: {
-            "coolness": 7,
+            "coolness": 7.01,
             "added": 1750334052,
             "stars": 3,
             "popularity": 34
         },
         isRepoDisabled: true,
-        isSiteDisabled: true
+        isSiteDisabled: true,
+        isRepoHidden: true,
+        isSiteHidden: false
     },
     {
         "name": "Draggie Games",
-        "desc": "My A Level project - a platform to create, download, and test games and programs, featuring a desktop download and daemon process, full auth functionality, games licensing and backend storage hosting.",
+        "desc": "Part of my A Level project - a platform to create, download, and test games and programs, featuring a desktop download and daemon process, full auth functionality, games licensing and backend storage hosting.",
         "imgUrl": null,
         "imgAlt": "Draggie Games logo",
         "repoUrl": "https://github.com/Draggie306/draggiegames.com",
         "siteUrl": "https://draggiegames.com",
         ratings: {
-            "coolness": 4,
+            "coolness": 4.1,
             "added": 1713961932,
             "stars": 0,
             "popularity": 0
         },
         isRepoDisabled: true,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "Cheat Sheets",
@@ -221,11 +227,13 @@ let projects = [
             "popularity": 42000
         },
         isRepoDisabled: false,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "Project Saturnian",
-        "desc": "My A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens, escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading.",
+        "desc": "Part of my A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens, escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading.",
         "imgUrl": null,
         "imgAlt": "Project Saturnian logo",
         "repoUrl": "https://github.com/Draggie306/project-saturnian",
@@ -237,7 +245,9 @@ let projects = [
             "popularity": 0
         },
         isRepoDisabled: false,
-        isSiteDisabled: true
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: true
     },
     {
         "name": "Patient Assistance",
@@ -253,7 +263,9 @@ let projects = [
             "popularity": 2
         },
         isRepoDisabled: false,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "Remembling",
@@ -269,11 +281,13 @@ let projects = [
             "popularity": 0
         },
         isRepoDisabled: true,
-        isSiteDisabled: true
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "YouTube Channel",
-        "desc": "My monetised YouTube channel, showcasing UHD game soundtracks, iconic live event streams, academic achievements, and more. >2k subscribers and over 2M views.",
+        "desc": "My monetised YouTube channel, showcasing UHD game soundtracks, streams of iconic live events, academic achievements, and more. >2k subscribers and over 2M views.",
         "imgUrl": "assets/images/youtube.png",
         "imgAlt": "YouTube channel logo",
         "repoUrl": null,
@@ -285,7 +299,9 @@ let projects = [
             "popularity": 2000
         },
         isRepoDisabled: true,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: true,
+        isSiteHidden: false
     },
     {
         "name": "Infinite Ping Test",
@@ -301,7 +317,9 @@ let projects = [
             "popularity": 0
         },
         isRepoDisabled: true,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: true,
+        isSiteHidden: false
     },
     {
         "name": "geog.uk",
@@ -317,23 +335,27 @@ let projects = [
             "popularity": 3
         },
         isRepoDisabled: false,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "iBaguette",
-        "desc": "My biggest and first website with articles, revision guides, information and more. Monetised by Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
+        "desc": "My biggest and first website with articles, revision guides, information and more. Monetised by Google Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
         "imgUrl": null,
         "imgAlt": "iBaguette logo",
         "repoUrl": "https://github.com/Draggie306/iBaguette",
         "siteUrl": "https://ibaguette.com",
         ratings: {
-            "coolness": 6,
+            "coolness": 6.01,
             "added": 1580423674,
             "stars": 3,
             "popularity": 1000
         },
         isRepoDisabled: false,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "Kaspersky to CSV",
@@ -343,13 +365,15 @@ let projects = [
         "repoUrl": "https://github.com/Draggie306/Kaspersky-to-CSV",
         "siteUrl": "https://kaspersky-to-csv.ibaguette.com",
         ratings: {
-            "coolness": 4,
+            "coolness": 4.1,
             "added": 1703514183,
-            "stars": 8,
+            "stars": 9,
             "popularity": 65
         },
         isRepoDisabled: false,
-        isSiteDisabled: false
+        isSiteDisabled: false,
+        isRepoHidden: false,
+        isSiteHidden: false
     },
     {
         "name": "BaguetteBot",
@@ -365,6 +389,8 @@ let projects = [
             "popularity": 45
         },
         isRepoDisabled: false,
-        isSiteDisabled: true
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: true
     }
 ];
