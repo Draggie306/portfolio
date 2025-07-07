@@ -86,7 +86,7 @@ a:not(:hover) {
 }
 
 /* "My Projects h1 */
-h1, #title-projects {
+#title-projects {
     display: inline;
     margin-left: 1em;
     > #mainText {
@@ -116,7 +116,7 @@ h1, #title-projects {
 
     /* 03/07/2025 Fixes button alignment issues when nested - fix by Copilot (o4-mini) */
     position: absolute;
-    bottom: 2.25rem;          /* pin to bottom, adjust as needed */
+    bottom: 0.25rem;          /* pin to bottom, adjust as needed */
     left: 50%;             /* start at half‐width */
     transform: translateX(-50%); /* shift back by half its own width */
     margin: 0;             /* clear out the old margins */
@@ -126,7 +126,7 @@ h1, #title-projects {
     height: 2rem;
     gap: 0px 20px;
 
-    padding: 5px;
+    padding: 25px;
 }
 
 .projectButtonContainer > button {
@@ -164,58 +164,6 @@ button:disabled, button:disabled:hover {
     background-color: #eeeeee !important;
 }
 
-
-
-@media (max-width: 876px) {
-    body {
-        margin-left: 3%;
-        margin-right: 3%;
-    }
-    .main-grid-layout {
-        grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 5rem;
-    }
-
-    header {
-        text-align: left;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        h1 #name-header {
-            text-align: center;
-        }
-
-        /* specific read more text good colour (else very dark) */
-        > p {
-            margin-left: 5%;
-            margin-right: 5%;
-            > span > a {
-                color: #00acff
-            }
-        }
-
-        /* override */
-        #name-header {
-            text-align: center;
-        }
-
-        nav {
-            /* 10% gap works well for spacing and 5% left-right keeps one line on phone */
-            margin: 10% 5%;
-            font-size: 150%;
-            text-align: center;
-        }
-    }
-}
-
-@media (max-width: 1365px) and (min-width: 877px) {
-    .main-grid-layout {
-        grid-template-columns: repeat(2, 1fr);
-        grid-row-gap: 5rem;
-    }
-}
-
 .main-grid-project-card {
     outline-color: transparent;
     outline-offset: .75rem;
@@ -236,40 +184,30 @@ button:disabled, button:disabled:hover {
     height: 92%;
 }
 
-.main-grid-project-card h2, 
-.main-grid-project-card p {
-    color: #dbd8d8;
-    transition: all 0.4s ease;
-    transform-origin: center;
-    text-align: center;
-    bottom: .0rem;
-    width: 100%;
-    /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
-    position: absolute;
+/* …existing code … */
 
-    /* 03/07/2025 Centre elements when offset by padding - fix by Copilot. */
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
+.main-grid-project-card h2 {
+    position: absolute;
+    left: 0; right: 0;
+    top: 80%;            /* start 80% down */
+    transform: none;
+    text-align: center;
+    width: 100%;
+    color: #dbd8d8;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /* include font-size in the transition */
+    transition: top 0.4s ease,
+                color 0.4s ease,
+                font-size 0.4s ease;
 }
 
-
 .main-grid-project-card:hover h2 {
+    top: 5%;
     color: #ffffff;
-    text-shadow: 2 1 28px rgba(177, 177, 177, 0.5);
-    bottom: 14rem;
-    font-size: xx-large;
+    font-size: 2rem;
+    text-shadow: 2px 1px 28px rgba(177,177,177,0.5);
     text-decoration: underline;
-    text-shadow: white;
-
-    /* todo: put glow behind text -- https://codersblock.com/blog/creating-glow-effects-with-css/
-    
-    border-radius: 90%;
-    border-left-width: 100px;
-    background-color:rgba(255, 255, 255, 0.2);
-
-    box-shadow:
-        0 0 10px 1px #fff, */
 }
 
 /* h3s in the main grid layout for each are the mini descriptions, hidden by default */
@@ -305,8 +243,8 @@ button:disabled, button:disabled:hover {
 
 .main-grid-project-card:hover h3 {
     display: block;
-    font-size: 1rem;
-    top: 7.5rem;
+    font-size: clamp(0.5rem, 1vw + 0.15rem, 1.8rem);
+    top: 30%;
     
     /* Doherty Threshold */
     animation: fade-in-delay 0.4s ease-in-out;
@@ -484,6 +422,16 @@ button:disabled, button:disabled:hover {
     border-left: none !important;
 }
 
+/* About me page */
+#portrait-photo-rotator {
+    display: inline;
+    text-align: center;
+    border-radius: 50%;
+    border: 3px dashed grey;
+    margin: 5px;
+}
+
+
 /* typing out effect */
 .cursor {
     animation: blink 1s infinite; /* So simple but effective */
@@ -491,6 +439,89 @@ button:disabled, button:disabled:hover {
 
 @keyframes blink {
     50% { opacity: 0; } /* Holy moly, it's that easy */
+}
+
+
+@media (max-width: 876px) {
+    body {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .main-grid-layout {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 5rem;
+    }
+
+    header {
+        text-align: left;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        /* specific read more text good colour (else very dark) */
+        > p {
+            margin-left: 5%;
+            margin-right: 5%;
+            > span > a {
+                color: #00acff
+            }
+        }
+
+        /* override */
+        #name-header, #name-header-large {
+            text-align: center;
+        }
+
+        nav {
+            /* 10% gap works well for spacing and 5% left-right keeps one line on phone */
+            margin: 10% 5%;
+            font-size: 150%;
+            text-align: center;
+        }
+    }
+
+    /* Adjustments for scaling and transitions */
+    .main-grid-project-card:hover h2 {
+        top: 0.1%;
+        font-size: clamp(1.5rem, 5vw + 0.2rem, 2.5rem);
+    }
+
+    .main-grid-project-card:hover h3 {
+        bottom: 0.1rem;
+        font-size: clamp(0.9rem, 3vw + 0.2rem, 2.5rem);
+        top: 20%;
+        margin: 0 clamp(0rem, 1vw - 20px, 10px);
+    }
+
+    .projectButtonContainer {
+        bottom: 0;
+        gap: clamp(5px, 5vw - 12px, 20px);
+    }
+}
+
+@media (max-width: 1365px) and (min-width: 677px) {
+    .main-grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 5rem;
+    }
+
+    .main-grid-project-card:hover h2 {
+        top: 0.1%;
+        font-size: clamp(1rem, 5vw + 0.2rem, 1.5rem);
+    }
+
+    .main-grid-project-card:hover h3 {
+        bottom: 0.1rem;
+        font-size: clamp(0.8rem, 1.5vw + 0.15rem, 1.8rem);
+        top: 20%;
+        margin: 0 1vw;
+    }
+
+    .projectButtonContainer > button {
+        bottom: 0;
+        font-size: medium !important;
+        gap: clamp(5px, 5vw - 12px, 10px);
+    }
 }
 
 #special-temp-dontuse-css {
