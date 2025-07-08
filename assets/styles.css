@@ -206,7 +206,7 @@ button:disabled, button:disabled:hover {
     top: 5%;
     color: #ffffff;
     font-size: 2rem;
-    text-shadow: 2px 1px 28px rgba(177,177,177,0.5);
+    text-shadow: 2px 2px 36px rgba(255, 255, 255, 0.79);
     text-decoration: underline;
 }
 
