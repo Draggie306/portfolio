@@ -11,3 +11,9 @@ The site can be run statically (e.g. GitHub/Cloudflare Pages) or with server-sid
 1. Clone the repository and `cd` into it.
 2. If you want to put the site behind a authwall or run server-side, run `npx wrangler dev` and `npx wrangler deploy`.
 3. If not, copy the directory and open it in a browser, and click `index.html`.
+
+## Inspiration
+
+The site's design elements and overall experience are original ideas and creations. That being said, I did take inspiration for the following things:
+
+- Hover element border effects: [Fortnite.com](https://www.fortnite.com)

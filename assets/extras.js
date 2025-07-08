@@ -54,8 +54,9 @@ function typeText(id, charlist) {
 const photos = [
     "/assets/images/features/headshot.png",       // Main default photo - awards
     "/assets/images/features/jess.png",           // Caius!
-    "/assets/images/features/computerphile.png",  // Play Button
-    "/assets/images/features/caribou.png",        // Canadian Caribou
+    "/assets/images/features/computerphile-square.JPG",  // Play Button
+    "/assets/images/features/caribou-square.jpg",       // Canadian Caribou
+    "/assets/images/features/kings-square.JPG",           // King's College (cambs)
 ];
 
 function preloadImage(url) {
@@ -73,12 +74,32 @@ for (let i = 0; i < photos.length; i++) {
  */
 async function cyclePortraitPhotos() {
     const element = document.getElementById("portrait-photo-rotator");
+    const element_next = document.getElementById("portrait-photo-rotator-next");
 
     let currentIndex = 0;
     element.src = photos[currentIndex];
+    element_next.src = photos[(currentIndex + 1) % photos.length];
 
     setInterval(() => {
+        
+        element_next.src = photos[(currentIndex + 1) % photos.length];
+        
+        // swap current to next
         currentIndex = (currentIndex + 1) % photos.length;
-        element.src = photos[currentIndex];
+
+        element.animate(
+            [{ transform: "translateY(0)" }, { transform: "translateX(-100%)" }],
+            { duration: 1000, easing: "ease-in-out" }
+        );
+        const animation = element_next.animate(
+            [{ transform: "translateX(-100%)" }],
+            { duration: 1000, easing: "ease-in-out" }
+        );
+
+        setTimeout(() => {
+            element.src = photos[currentIndex];
+        }, 950); // Must wait for animation to finish
+
+        
     }, 5000);
 }

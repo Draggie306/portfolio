@@ -423,12 +423,36 @@ button:disabled, button:disabled:hover {
 }
 
 /* About me page */
-#portrait-photo-rotator {
-    display: inline;
-    text-align: center;
+#portrait-photo-container {
+    display: inline-flex;
+    overflow: hidden;
     border-radius: 50%;
-    border: 3px dashed grey;
-    margin: 5px;
+    width: 200px;
+    height: 200px;
+    border: 5px dashed grey;
+
+    /* Firefox fix for showing all in the same element [Copilot o4-mini] */
+    > img {
+        flex-shrink: 0;
+    }
+}
+
+#portrait-photo-rotator {
+    display: block;       
+    width: 100%;          
+    height: 100%;
+    object-fit: cover;    
+    border-radius: 50%;
+    animation: reveal 1s;
+}
+
+#portrait-photo-rotator-next {
+    display: inline;
+    width: 100%;          
+    height: 100%;
+    object-fit: cover;    
+    border-radius: 50%;
+    animation: reveal 1s;
 }
 
 
@@ -439,6 +463,11 @@ button:disabled, button:disabled:hover {
 
 @keyframes blink {
     50% { opacity: 0; } /* Holy moly, it's that easy */
+}
+
+@keyframes reveal {
+    0% { opacity: 0; };
+    100% { opacity: 1; }
 }
 
 
