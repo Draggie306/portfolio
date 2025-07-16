@@ -69,6 +69,10 @@ for (let i = 0; i < photos.length; i++) {
     preloadImage(photos[i]);
 }
 
+function sleep(ms) {
+    console.log(`Sleeping for ${ms}ms`);
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 /**
  * repeatedly cycle through the portrait photos (for the about page)
  */
@@ -78,13 +82,20 @@ async function cyclePortraitPhotos() {
 
     let currentIndex = 0;
     element.src = photos[currentIndex];
-    element_next.src = photos[(currentIndex + 1) % photos.length];
+    await element.decode();
 
-    setInterval(() => {
-        
+    setInterval(async () => {
+        // const start_ms = Date.now();
         element_next.src = photos[(currentIndex + 1) % photos.length];
+        await element_next.decode();
+        // const end_ms = Date.now();
+        // console.log(`Decoded next photo: ${element_next.src} in ${end_ms - start_ms}ms`);
         
         // swap current to next
+        // element_next.src = photos[(currentIndex + 1) % photos.length];
+        // console.log(`Now swapped next photo to: ${element_next.src}`);
+
+        // increment position in photos array
         currentIndex = (currentIndex + 1) % photos.length;
 
         element.animate(
@@ -98,8 +109,16 @@ async function cyclePortraitPhotos() {
 
         setTimeout(() => {
             element.src = photos[currentIndex];
+            console.log(`Changed current photo to: ${element.src}`);
         }, 950); // Must wait for animation to finish
 
-        
-    }, 5000);
+        element_next.src = photos[currentIndex];
+        console.log(`Now swapped next photo to: ${element_next.src}`);
+
+        // New way to sleep for remaining time for non-blocking
+        // await sleep(5000+(end_ms - start_ms));
+
+    // repeat every 5 seconds
+    }, 5000
+    );
 }

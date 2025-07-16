@@ -85,16 +85,26 @@ a:not(:hover) {
     margin-bottom: 10rem;
 }
 
+#name-header {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
 /* "My Projects h1 */
-#title-projects {
+#title-projects, #title-projects-container {
     display: inline;
-    margin-left: 1em;
+    font-size: 2rem;
+    padding-left: 1rem;
     > #mainText {
         text-decoration: underline;
     }
 }
 
 #orderByLabel {
+    font-size: 1.2rem;
     text-align: left;
     justify-content:center;
     align-self: baseline;
@@ -105,7 +115,7 @@ a:not(:hover) {
     outline-style: solid;
     outline-width: 0;
     border-radius: .5em;
-    height: 1.3rem;
+    height: 1.8rem;
     margin: auto;
 }
 
@@ -456,6 +466,45 @@ button:disabled, button:disabled:hover {
 }
 
 
+#about-me-paragraphs {
+    h2 {
+        margin-top: 3%;
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: large;
+    }
+
+    
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#about-me-paragraphs #title-projects {
+    font-size: xx-large;
+    text-align: center;
+
+    margin-top: 0;
+
+    /* Overrides */
+    display: block;
+    margin-left: 0;
+}
+
+#about-me-header {
+    margin-bottom: 2rem;
+}
+
+#about-me-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+#about-me-header nav {
+    margin: 10px 0 0 0;
+}
+
 /* typing out effect */
 .cursor {
     animation: blink 1s infinite; /* So simple but effective */
@@ -479,6 +528,21 @@ button:disabled, button:disabled:hover {
     .main-grid-layout {
         grid-template-columns: repeat(1, 1fr);
         grid-row-gap: 5rem;
+    }
+
+    #title-projects-container {
+        /* override the “column” layout */
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;   /* vertically center text and select */
+        gap: 0.5rem;           /* small space between title and dropdown */
+        padding: 0;            /* if you don’t want any extra inset */
+    }
+
+    /* ensure the select itself stays inline */
+    #orderByLabel {
+        display: inline-block;
+        margin: 0;
     }
 
     header {
