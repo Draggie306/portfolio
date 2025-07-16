@@ -46,7 +46,10 @@ export default {
         }
 
         // If not a login request, check if there is a cookie with the auth_token
-        const auth_cookie = request.headers.get("Cookie")?.split("; ").find(row => row.startsWith("auth_token="));
+        const auth_cookie = request.headers.get("Cookie")
+            ?.split("; ")
+            .find(row => row.startsWith("auth_token="));
+
         const given_token_value = auth_cookie ? auth_cookie.split("=")[1] : null;
 
         if ((!given_token_value) || (given_token_value !== env.SUPER_SECRET_AUTH_TOKEN)) {
@@ -57,6 +60,7 @@ export default {
         // By now, it has passed all checks, so the user has logged in successfully before.
         // Therefore, return their requested static asset.
 
+        console.log("returning static asset")
         return env.ASSETS.fetch(request);
         // return new Response( html_content, {
         //     headers: {"Content-Type": "text/html"}
@@ -64,17 +68,17 @@ export default {
     },
 };
 
-async function return_protected(request, env, protected_page: Number) {
+async function return_protected(request: Request, env, protected_page: Number) {
+    const loginURL = new URL(request.url);
+
     if (protected_page == 1) {
-        const loginURL = new URL(request.url);
         loginURL.pathname = "/protected/login.html";
         return env.ASSETS.fetch(loginURL.toString());
-    } else if (protected_page == 2) {
-        const loginURL = new URL(request.url);
+    } else {
         loginURL.pathname = "/protected/unauthorised.html";
         const asset = await env.ASSETS.fetch(loginURL.toString())
         console.log("returning altered response");
-        return new Response(asset.body, {
+        return new Response (asset.body, {
             status: 401,
             headers: asset.headers
         })

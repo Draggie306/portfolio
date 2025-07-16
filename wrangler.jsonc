@@ -4,10 +4,13 @@
     "main": "worker.ts",
     "compatibility_date": "2025-05-05",
     "assets": {
-        "run_worker_first": ["/", "!/assets/*"], // force worker to fire for auth first
+        "run_worker_first": [
+            "!/assets/*",   // Assets can be static at any time
+            "/*"            // Anything else must be valid
+        ],
         "directory": "./",
         "binding": "ASSETS",
         "html_handling": "drop-trailing-slash"
         // "not_found_handling": "404-page"
     }
-}
+} 
