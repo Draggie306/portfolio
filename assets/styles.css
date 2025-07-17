@@ -5,6 +5,12 @@ with a focus on smoothness, intuitive UI/UX and user psychology (Doherty thresho
 
 */
 
+html {
+
+    /* Account for scrollbar */
+    overflow-y: scroll;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -36,17 +42,22 @@ nav {
 }
 
 header {
-    text-align: center;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     margin-bottom: 5%;
-    /* height: 10vh; why did I say "do NOT uncomment this"? */ /* update, I understand why i said to uncomment it */
+}
 
-    /* "Read more about me" text */
-    > p > span > a {
-        color: #00acff
-        }
+header > p > span > a {
+    color: #00acff;
+}
+
+header > p {
+    margin: 0 auto 1.5rem;
+    align-self: stretch;
+    text-align: center; 
 }
 
 /* Colour change hover effect */
@@ -97,7 +108,7 @@ p {
 #title-projects, #title-projects-container {
     display: inline;
     font-size: 2rem;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     > #mainText {
         text-decoration: underline;
     }
@@ -216,7 +227,7 @@ button:disabled, button:disabled:hover {
     top: 5%;
     color: #ffffff;
     font-size: 2rem;
-    text-shadow: 2px 2px 36px rgba(255, 255, 255, 0.79);
+    text-shadow: 2px 2px 36px rgba(255, 255, 255, 0.59);
     text-decoration: underline;
 }
 
