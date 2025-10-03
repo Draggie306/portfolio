@@ -9,7 +9,7 @@
 <body>
     <h1>Login</h1>
     <form id="submitter">
-        <label for="auth_token">Valid tester auth_token required:</label><br>
+        <label for="auth_token">Input the tester auth token:</label><br>
         <input type="text" id="auth_token" name="auth_token"><br><br>
         <button type="submit">Submit</button>
     </form>
@@ -38,6 +38,8 @@
 
         auth_token = JSON.parse(response_text).auth_token;
         console.log("auth_token: " + auth_token);
+
+        alert(`Access granted... welcome to the top secret area. please don't bash my wonderful creation too much :)`);
 
         // passed the check!
         document.cookie = `auth_token=${auth_token}; path=/;s`;

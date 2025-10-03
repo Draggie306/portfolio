@@ -3,11 +3,13 @@
 
 <head>
     <title>Oliver Ling | Student, Developer, Researcher, Full Stack Software Engineer</title>
-    <meta name="description"
-        content="An undergrad student at the University of Nottingham, studying Computer Science and AI. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
+    <meta name="description" content="An undergraduate Computer Science and AI student at the University of Nottingham. Experienced in full stack development, with a passion for creating meaningful products. Enjoys programming with TypeScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles.css" />
     <script src="/assets/script.js" defer> </script>
+    <link rel="preload" href="/assets/extras.js" as="script" />
+    <link rel="preload" href="/about" as="document" />
+    <link rel="preload" href="/now" as="document" />
 
     <link rel="canonical" href="https://oling.dev" />
 </head>
@@ -18,7 +20,7 @@
             <header>
                 <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h1>
                 <p>
-                    Hello! I'm Oliver, an undergrad Computer Science and AI student at the University of Nottingham. I love making software, websites and utilities that have positive, tangible and real-world benefits. Beyond technology, I love learning & speaking different languages, and am interested in geography and photography, amongst many other things.
+                    Hello! I'm Oliver, an undergraduate Computer Science with AI student at the University of Nottingham, currently in my first year. I love building software, making websites and utilities that have positive, tangible and real-world benefits. Beyond technology, I love learning & speaking different languages, and am interested in geography and photography amongst many other things.
                     <span><a href="/about">Read more about me ></a></span>
                 </p>
                 <nav class="nav">
@@ -34,15 +36,14 @@
     <!-- Main grid layout -->
     <section>
         <div id="title-projects-container">
-            <h1 id="title-projects"><span id="mainText">My Projects</span><span id="secondaryText">, ordered by:
-                </span></h1>
+            <h1 id="title-projects"><span id="mainText">My Projects, ordered by:</span></h1>
 
             <label for="orderByLabel"></label>
             <select name="orderByLabel" class="hover-effect" id="orderByLabel">
-                <option value="coolness">Most Epic &#10024;</option>
-                <option value="added">Most recent</option>
+                <option value="coolness">Coolest &#10024;</option>
+                <option value="added">Most Recent</option>
                 <option value="stars">Most GitHub Stars</option>
-                <option value="popularity">Most popular</option>
+                <option value="popularity">Most Popular</option>
             </select>
         </div>
 
@@ -73,7 +74,7 @@
     <footer class="bottom-sticky-bar">
         <div class="bottom-sticky-bar-content">
             <a id="footer-button-what" href="/">Creations</a>
-            <a id="footer-button-milestones" href="/milestones">Milestones</a>
+            <!-- <a id="footer-button-milestones" href="/milestones">Milestones</a> -->
             <a id="footer-button-things" href="/now">Now</a>
             <a id="footer-button-who" href="/about">About</a>
         </div>
