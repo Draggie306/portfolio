@@ -9,6 +9,13 @@ html {
 
     /* Account for scrollbar */
     overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+
+    ::-webkit-scrollbar { 
+    display: none;  /* Older Safari and Chromium */
+}
+    
 }
 
 body {
@@ -18,7 +25,7 @@ body {
     padding: 0;
     background-color: rgb(16, 16, 20);
     color: rgb(233, 233, 233);
-    user-select: none;
+    /* user-select: none; */
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
     
@@ -108,7 +115,7 @@ p {
 #title-projects, #title-projects-container {
     display: inline;
     font-size: 2rem;
-    /* padding-left: 1rem; */
+    padding-left: 1rem;
     > #mainText {
         text-decoration: underline;
     }
@@ -120,7 +127,7 @@ p {
     justify-content:center;
     align-self: baseline;
     color: #000;
-    background-color: rgb(214, 214, 214);
+    /* background-color: rgb(214, 214, 214); */
     outline-color: transparent;
     outline-offset: .75rem;
     outline-style: solid;
@@ -128,6 +135,7 @@ p {
     border-radius: .5em;
     height: 1.8rem;
     margin: auto;
+
 }
 
 /* Buttons within each project card 
@@ -203,6 +211,7 @@ button:disabled, button:disabled:hover {
     min-width: 0;
     
     height: 92%;
+    /* border:#d3d3d3 1px solid; <--- Can't figure out if a border should go around each one? */
 }
 
 /* …existing code … */
@@ -542,12 +551,20 @@ button:disabled, button:disabled:hover {
     }
 
     #title-projects-container {
+        display: block !important;
         /* override the “column” layout */
-        display: inline-flex;
-        flex-direction: row;
+        /* display: inline-flex; */
+        /* flex-direction: column; */
         align-items: center;   /* vertically center text and select */
-        gap: 0.5rem;           /* small space between title and dropdown */
-        padding: 0;            /* if you don’t want any extra inset */
+        padding-top: 5%;
+        /* padding-left: 1rem !important; */
+        
+        text-align: center;
+    }
+
+    #title-projects, #title-projects-container {
+        /* override the indent on big screen to fit small ones */
+        padding-left: 0;
     }
 
     /* ensure the select itself stays inline */
@@ -578,8 +595,8 @@ button:disabled, button:disabled:hover {
 
         nav {
             /* 10% gap works well for spacing and 5% left-right keeps one line on phone */
-            margin: 10% 5%;
-            font-size: 150%;
+            margin: 5% 3%;
+            font-size: 200%;
             text-align: center;
         }
     }
@@ -594,7 +611,7 @@ button:disabled, button:disabled:hover {
         bottom: 0.1rem;
         font-size: clamp(0.9rem, 3vw + 0.2rem, 2.5rem);
         top: 20%;
-        margin: 0 clamp(0rem, 1vw - 20px, 10px);
+        /* margin: 0 clamp(0rem, 1vw - 20px, 10px); */
     }
 
     .projectButtonContainer {
