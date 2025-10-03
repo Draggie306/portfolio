@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Loaded");
+    console.log(`DOM Loaded on ${window.location.pathname}`);
 
     // Render name typing
 
@@ -8,11 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
         typeText("typed-text-thingsdone", string_things_done, charlist_things_done)
     }
     else if (window.location.pathname == "/about") {
-        // typeText("typed-text-whoiam", string_whoiam, charlist_things_done)
+        console.log("Starting photo rotator on about page");
         cyclePortraitPhotos(); // Start the photo rotator
     }
     else if (window.location.pathname == "/") { // index 
         typeText("typed-text", string_whoiam, charlist_whoaim)
+    }
+
+    else { 
+        console.log("No typing animation on this page");
     }
 
     // console.log(window.location.pathname)
@@ -29,7 +33,7 @@ let i = 0;
 const speed = 100;
 
 /**
- * 
+ * Types out text on an element one char at a time.
  * @param {*} id element ID
  * @param {*} charlist split string to type
  */
@@ -52,13 +56,18 @@ function typeText(id, charlist) {
 }
 
 const photos = [
-    "/assets/images/features/headshot.png",       // Main default photo - awards
-    "/assets/images/features/jess.png",           // Caius!
-    "/assets/images/features/computerphile-square.JPG",  // Play Button
+    "/assets/images/features/headshot.png",             // Main classic photo - awards
+    "/assets/images/features/djanogly.jpg",             // Jubilee DLRC (notts)
+    "/assets/images/features/jess.png",                 // Caius! (Cambs)
+    "/assets/images/features/computerphile-square.JPG", // Play Button (notts)
     "/assets/images/features/caribou-square.jpg",       // Canadian Caribou
-    "/assets/images/features/kings-square.JPG",           // King's College (cambs)
+    "/assets/images/features/kings-square.JPG",         // King's College (cambs)
 ];
 
+/**
+ * awful function to load an img into cache
+ * @param {*} url 
+ */
 function preloadImage(url) {
    var img=new Image();
    img.src=url;
@@ -83,6 +92,8 @@ async function cyclePortraitPhotos() {
     let currentIndex = 0;
     element.src = photos[currentIndex];
     await element.decode();
+
+    console.log(`Starting photo rotator with photo: ${element.src}`);
 
     setInterval(async () => {
         // const start_ms = Date.now();

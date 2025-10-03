@@ -10,9 +10,9 @@
 
 
 export default {
-    async fetch(request, env, ctx) {
+    async fetch(request: Request, env: { ASSETS: { fetch: (arg0: string) => any; }; SUPER_SECRET_AUTH_TOKEN: string | null; }, ctx: any) {
 
-        // Check login route first: early returns
+        // Check login route first: early returns 
         const url = new URL(request.url);
         const path = url.pathname;
 
@@ -48,7 +48,7 @@ export default {
         // If not a login request, check if there is a cookie with the auth_token
         const auth_cookie = request.headers.get("Cookie")
             ?.split("; ")
-            .find(row => row.startsWith("auth_token="));
+            .find((row: string) => row.startsWith("auth_token="));
 
         const given_token_value = auth_cookie ? auth_cookie.split("=")[1] : null;
 
@@ -61,14 +61,14 @@ export default {
         // Therefore, return their requested static asset.
 
         console.log("returning static asset")
-        return env.ASSETS.fetch(request);
+        return env.ASSETS.fetch(request.url);
         // return new Response( html_content, {
         //     headers: {"Content-Type": "text/html"}
         // })
     },
 };
 
-async function return_protected(request: Request, env, protected_page: Number) {
+async function return_protected(request: Request, env: { ASSETS: { fetch: (arg0: string) => any; }; }, protected_page: Number) {
     const loginURL = new URL(request.url);
 
     if (protected_page == 1) {

@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add all the project cards to main-grid-layout depending on order, default to "coolness" order
     const mainGridLayout = document.getElementById("main-grid-layout");
     if (!mainGridLayout) {
-        console.error("Main grid layout not found");
+        console.log("Main grid layout not found; assuming not on index page");
         return;
     }
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function repopulateGrid(namedOrder) {
     const mainGridLayout = document.getElementById("main-grid-layout");
     if (!mainGridLayout) {
-        console.error("Main grid layout not found");
+        console.log("Main grid layout not found; assuming not on index page");
         return;
     }
     while (mainGridLayout.firstChild) {
@@ -88,8 +88,8 @@ function repopulateGrid(namedOrder) {
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
-                                    ${(element.isRepoHidden === false && (element.repoUrl ?? false)) ? `<button id ="${element.name}Repo" ${element.isRepoDisabled ? 'disabled' : ''} class="repo-button animation-hover" onclick="window.open('${element.repoUrl}', '_blank')">View Repository</button>` : ''}
-                                    ${(element.isSiteHidden === false && (element.siteUrl ?? false)) ? `<button id ="${element.name}Site" ${element.isSiteDisabled ? 'disabled' : ''} class="site-button animation-hover" onclick="window.open('${element.siteUrl}', '_blank')">Open site</button>` : ''}
+                                    ${(element.isRepoHidden === false && (element.repoUrl ?? false)) ? `<button id ="${element.name}Repo" ${element.isRepoDisabled ? 'disabled' : ''} class="repo-button animation-hover" onclick="window.open('${element.repoUrl}', '_blank')">Open Repository</button>` : ''}
+                                    ${(element.isSiteHidden === false && (element.siteUrl ?? false)) ? `<button id ="${element.name}Site" ${element.isSiteDisabled ? 'disabled' : ''} class="site-button animation-hover" onclick="window.open('${element.siteUrl}', '_blank')">View Site</button>` : ''}
                                     </div>
                                 </div>`;
     });
@@ -179,7 +179,7 @@ let projects = [
     },
     {
         "name": "Study", // Ronaaaaaan
-        "desc": "Coming soon. A brand new study platform, using the latest web tech: React and Next.js. Upload, browse, search and learn from real, marked exam papers - it's the only database of NEAs, EPQs and personal statements like it.",
+        "desc": "Coming soon. A brand new study platform: upload, browse, search and learn from real, marked exam papers - it's the only database of NEAs, EPQs and personal statements like it. Uses the latest web tech: React and Next.js.",
         "imgUrl": "assets/images/study.png",
         "imgAlt": "Study logo",
         "repoUrl": "https://github.com/iBaguette/study",
@@ -197,7 +197,7 @@ let projects = [
     },
     {
         "name": "Draggie Games",
-        "desc": "Part of my A Level project - a platform to create, download, and test games and programs, featuring a desktop download and daemon process, full auth functionality, games licensing and backend storage hosting.",
+        "desc": "A platform to create, download, and test games and programs, featuring a desktop download and daemon process, full server-side auth functionality, games licensing and backend storage hosting. Part of my A Level project.",
         "imgUrl": null,
         "imgAlt": "Draggie Games logo",
         "repoUrl": "https://github.com/Draggie306/draggiegames.com",
@@ -215,7 +215,7 @@ let projects = [
     },
     {
         "name": "Cheat Sheets",
-        "desc": "A revision resource site full of hand-crafted notes for entire GCSEs and A Level subjects, with all the information needed to get top grades. Used by over 10,000 students annually.",
+        "desc": "A revision resource site full of human-written notes for entire GCSEs and A Level subjects, with all the information needed to get top grades. Used by over 10,000 students annually!",
         "imgUrl": null,
         "imgAlt": "iBaguette Cheat Sheets logo",
         "repoUrl": "https://github.com/Draggie306/CheatSheets",
@@ -233,7 +233,7 @@ let projects = [
     },
     {
         "name": "Project Saturnian",
-        "desc": "Part of my A Level project - a Unity-based water simulation game. Avoid the rising water, collect tokens, escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading.",
+        "desc": "A water simulation game in Unity (C#). Avoid the rising water, collect tokens, escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading. Part of my A Level project.",
         "imgUrl": null,
         "imgAlt": "Project Saturnian logo",
         "repoUrl": "https://github.com/Draggie306/project-saturnian",
@@ -251,7 +251,7 @@ let projects = [
     },
     {
         "name": "Patient Assistance",
-        "desc": "An installable webapp allowing medical patients requiring care to quickly request and receive help. Tried and tested!",
+        "desc": "An installable webapp allowing medical patients requiring care to quickly, easily and instantly request and receive help from others.",
         "imgUrl": null,
         "imgAlt": "Patient Assistance webapp logo",
         "repoUrl": "https://github.com/Draggie306/patient-assistance",
@@ -269,7 +269,7 @@ let projects = [
     },
     {
         "name": "Remembling",
-        "desc": "A new approach to language and information learning with novel psychological research built right in. Currently in beta!",
+        "desc": "A new approach to language and information learning with novel psychological research built right in. Currently in beta.",
         "imgUrl": null,
         "imgAlt": "Remembling logo",
         "repoUrl": null,
@@ -287,7 +287,7 @@ let projects = [
     },
     {
         "name": "YouTube Channel",
-        "desc": "My monetised YouTube channel, showcasing UHD game soundtracks, streams of iconic live events, academic achievements, and more. >2k subscribers and over 2M views.",
+        "desc": "My monetised YouTube channel, showcasing UHD game soundtracks programatically extracted from game binaries, streams of live events, my academic achievements, and more. >2k subscribers and >2M views.",
         "imgUrl": "assets/images/youtube.png",
         "imgAlt": "YouTube channel logo",
         "repoUrl": null,
@@ -305,7 +305,7 @@ let projects = [
     },
     {
         "name": "Infinite Ping Test",
-        "desc": "AKA Infiniping. It's a utility used to measure and analyse realtime ping RTT, but for an indefinite duration. Built with the websockets API and Cloudflare Workers.",
+        "desc": "A browser utility used to measure and analyse realtime ping RTT over an indefinite period to identify network issues/possible WAP optimisations. Built with the websockets API and Cloudflare Workers. Formerly Infiniping.",
         "imgUrl": "assets/images/ping.png",
         "imgAlt": "Graph of ping test on the Infinite Ping Test project site",
         "repoUrl": null,
@@ -323,7 +323,7 @@ let projects = [
     },
     {
         "name": "geog.uk",
-        "desc": "Inspired by my multi-disciplinary love for many subjects, this is a platform to connect and collaborate with passionate geographers across the UK.",
+        "desc": "A future platform to connect and collaborate with passionate geographers across the UK, to organise talks, field trips and to share information. Inspired by my multi-disciplinary love for many subjects. Work in progress.",
         "imgUrl": "assets/images/geog.uk.png",
         "imgAlt": "geog.uk logo",
         "repoUrl": "https://github.com/Draggie306/geog.uk",
@@ -341,7 +341,7 @@ let projects = [
     },
     {
         "name": "iBaguette",
-        "desc": "My biggest and first website with articles, revision guides, information and more. Monetised by Google Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
+        "desc": "My most popular and first website with a range of articles, revision guides, technical blog posts and more. Monetised by Google Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
         "imgUrl": null,
         "imgAlt": "iBaguette logo",
         "repoUrl": "https://github.com/Draggie306/iBaguette",
@@ -359,7 +359,7 @@ let projects = [
     },
     {
         "name": "Kaspersky to CSV",
-        "desc": "A practical utility program that uses rule-based evaluation to convert Kaspersky Password Manager's unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.",
+        "desc": "Uses rule-based evaluation to convert Kaspersky Password Manager's unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.",
         "imgUrl": "assets/images/kaspersky.png",
         "imgAlt": "Kaspersky to CSV page screenshot",
         "repoUrl": "https://github.com/Draggie306/Kaspersky-to-CSV",
@@ -377,7 +377,7 @@ let projects = [
     },
     {
         "name": "BaguetteBot",
-        "desc": "A multi-purpose Discord.py bot for server management, currency, role distibution, bulk updates and administration.",
+        "desc": "A multi-purpose Discord.py bot for server management and administration, currency and a shop, automatic role distribution, bulk updates and music.",
         "imgUrl": null,
         "imgAlt": "BaguetteBot logo",
         "repoUrl": "https://github.com/Draggie306/BaguetteBot",
