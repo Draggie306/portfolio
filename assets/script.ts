@@ -82,7 +82,7 @@ function repopulateGrid(namedOrder) {
         projectCard.classList.add("main-grid-project-card");
 
         // disgusting but it works
-        projectCard.innerHTML = `<img src="${element.imgUrl ? element.imgUrl : 'assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
+        projectCard.innerHTML = `<img loading="lazy" src="${element.imgName ? ("assets/images/" + element.imgName) : '/assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
@@ -160,7 +160,7 @@ let projects = [
     {
         "name": "Stories",
         "desc": "A web experience, focused on UI and UX, written in pure HTML and CSS with minimal scripting and zero AI use. Also a playground to publish some of my creative writing.",
-        "imgUrl": "assets/images/stories.png",
+        "imgName": "stories.png",
         "imgAlt": "iBaguette Stories logo",
         "repoUrl": "https://github.com/Draggie306/stories",
         "siteUrl": "https://stories.ibaguette.com",
@@ -178,7 +178,7 @@ let projects = [
     {
         "name": "Study", // Ronaaaaaan
         "desc": "Coming soon. A brand new study platform: upload, browse, search and learn from real, marked exam papers - it's the only database of NEAs, EPQs and personal statements like it. Uses the latest web tech: React and Next.js.",
-        "imgUrl": "assets/images/study.png",
+        "imgName": "study.png",
         "imgAlt": "Study logo",
         "repoUrl": "https://github.com/iBaguette/study",
         "siteUrl": "https://study.ibaguette.com",
@@ -196,7 +196,7 @@ let projects = [
     {
         "name": "Draggie Games",
         "desc": "A platform to create, download, and test games and programs, featuring a desktop download and daemon process, full server-side auth functionality, games licensing and backend storage hosting. Part of my A Level project.",
-        "imgUrl": null,
+        "imgName": null,
         "imgAlt": "Draggie Games logo",
         "repoUrl": "https://github.com/Draggie306/draggiegames.com",
         "siteUrl": "https://draggiegames.com",
@@ -204,7 +204,7 @@ let projects = [
             "coolness": 4.1,
             "added": 1713961932,
             "stars": 0,
-            "popularity": 0
+            "popularity": 43
         },
         isRepoDisabled: true,
         isSiteDisabled: false,
@@ -214,7 +214,7 @@ let projects = [
     {
         "name": "Cheat Sheets",
         "desc": "A revision resource site full of human-written notes for entire GCSEs and A Level subjects, with all the information needed to get top grades. Used by over 10,000 students annually!",
-        "imgUrl": null,
+        "imgName": null,
         "imgAlt": "iBaguette Cheat Sheets logo",
         "repoUrl": "https://github.com/Draggie306/CheatSheets",
         "siteUrl": "https://ibaguette.com/cheatsheets",
@@ -232,7 +232,7 @@ let projects = [
     {
         "name": "Project Saturnian",
         "desc": "A water simulation game in Unity (C#). Avoid the rising water, collect tokens, escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading. Part of my A Level project.",
-        "imgUrl": "assets/images/dgames-saturnianbanner.png",
+        "imgName": "dgames-saturnianbanner.png",
         "imgAlt": "Project Saturnian logo",
         "repoUrl": "https://github.com/Draggie306/project-saturnian",
         "siteUrl": null,
@@ -240,7 +240,7 @@ let projects = [
             "coolness": 6.3,
             "added": 1713961932,
             "stars": 0,
-            "popularity": 0
+            "popularity": 22
         },
         isRepoDisabled: false,
         isSiteDisabled: true,
@@ -250,7 +250,7 @@ let projects = [
     {
         "name": "Patient Assistance",
         "desc": "An installable webapp allowing medical patients requiring care to quickly, easily and instantly request and receive help from others.",
-        "imgUrl": null,
+        "imgName": null,
         "imgAlt": "Patient Assistance webapp logo",
         "repoUrl": "https://github.com/Draggie306/patient-assistance",
         "siteUrl": "https://patient-assist.ibaguette.com",
@@ -268,7 +268,7 @@ let projects = [
     {
         "name": "Remembling",
         "desc": "A new approach to language and information learning with novel psychological research built right in. Currently in beta.",
-        "imgUrl": null,
+        "imgName": null,
         "imgAlt": "Remembling logo",
         "repoUrl": null,
         "siteUrl": "https://remembling.com",
@@ -286,7 +286,7 @@ let projects = [
     {
         "name": "YouTube Channel",
         "desc": "My monetised YouTube channel, showcasing UHD game soundtracks programatically extracted from game binaries, streams of live events, my academic achievements, and more. >2k subscribers and >2M views.",
-        "imgUrl": "assets/images/youtube.png",
+        "imgName": "youtube.png",
         "imgAlt": "YouTube channel logo",
         "repoUrl": null,
         "siteUrl": "https://www.youtube.com/@Draggie306",
@@ -304,7 +304,7 @@ let projects = [
     {
         "name": "Infinite Ping Test",
         "desc": "A browser utility used to measure and analyse realtime ping RTT over an indefinite period to identify network issues/possible WAP optimisations. Built with the websockets API and Cloudflare Workers. Formerly Infiniping.",
-        "imgUrl": "assets/images/ping.png",
+        "imgName": "ping.png",
         "imgAlt": "Graph of ping test on the Infinite Ping Test project site",
         "repoUrl": null,
         "siteUrl": "https://draggie306.github.io/ping-test",
@@ -312,7 +312,7 @@ let projects = [
             "coolness": 5.5,
             "added": 1719237285,
             "stars": 0,
-            "popularity": 0
+            "popularity": 77
         },
         isRepoDisabled: true,
         isSiteDisabled: false,
@@ -322,7 +322,7 @@ let projects = [
     {
         "name": "geog.uk",
         "desc": "A future platform to connect and collaborate with passionate geographers across the UK, to organise talks, field trips and to share information. Inspired by my multi-disciplinary love for many subjects. Work in progress.",
-        "imgUrl": "assets/images/geog.uk.png",
+        "imgName": "geog.uk.png",
         "imgAlt": "geog.uk logo",
         "repoUrl": "https://github.com/Draggie306/geog.uk",
         "siteUrl": "https://geog.uk",
@@ -330,7 +330,7 @@ let projects = [
             "coolness": 5,
             "added": 1707672360,
             "stars": 0,
-            "popularity": 3
+            "popularity": 18
         },
         isRepoDisabled: false,
         isSiteDisabled: false,
@@ -340,7 +340,7 @@ let projects = [
     {
         "name": "iBaguette",
         "desc": "My most popular and first website with a range of articles, revision guides, technical blog posts and more. Monetised by Google Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
-        "imgUrl": null,
+        "imgName": null,
         "imgAlt": "iBaguette logo",
         "repoUrl": "https://github.com/Draggie306/iBaguette",
         "siteUrl": "https://ibaguette.com",
@@ -358,7 +358,7 @@ let projects = [
     {
         "name": "Kaspersky to CSV",
         "desc": "Uses rule-based evaluation to convert Kaspersky Password Manager's unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.",
-        "imgUrl": "assets/images/kaspersky.png",
+        "imgName": "kaspersky.png",
         "imgAlt": "Kaspersky to CSV page screenshot",
         "repoUrl": "https://github.com/Draggie306/Kaspersky-to-CSV",
         "siteUrl": "https://kaspersky-to-csv.ibaguette.com",
@@ -375,16 +375,34 @@ let projects = [
     },
     {
         "name": "BaguetteBot",
-        "desc": "A multi-purpose Discord.py bot for server management and administration, currency and a shop, automatic role distribution, bulk updates and music.",
-        "imgUrl": null,
+        "desc": "A multi-purpose Discord.py bot for server management and administration, currency and a shop, automatic role distribution, bulk updates and music. Fun fact: I added OpenAI's GPT-3 models into it before ChatGPT existed!",
+        "imgName": "baguettebot.png",
         "imgAlt": "BaguetteBot logo",
         "repoUrl": "https://github.com/Draggie306/BaguetteBot",
         "siteUrl": null,
         ratings: {
-            "coolness": 3,
+            "coolness": 3.5,
             "added": 1609108635,
             "stars": 1,
             "popularity": 45
+        },
+        isRepoDisabled: false,
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: true
+    },
+    {
+        "name": "Tools",
+        "desc": "A automatically-updating, terminal-based, installable Windows application, written in Python. Performs a range of tasks, from reverse-engineered game CDN downloads and asset extraction to YouTube downloading.",
+        "imgName": "dgames-draggietools-ui-v75.png",
+        "imgAlt": "DraggieTools latest version preview.",
+        "repoUrl": "https://github.com/Draggie306/DraggieTools",
+        "siteUrl": null,
+        ratings: {
+            "coolness": 3,
+            "added": 1650034026,
+            "stars": 3,
+            "popularity": 8
         },
         isRepoDisabled: false,
         isSiteDisabled: true,

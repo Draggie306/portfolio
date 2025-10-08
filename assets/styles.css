@@ -219,7 +219,7 @@ button:disabled, button:disabled:hover {
 .main-grid-project-card h2 {
     position: absolute;
     left: 0; right: 0;
-    top: 80%;            /* start 80% down */
+    top: 79%;            /* start 80% down */
     transform: none;
     text-align: center;
     width: 100%;
@@ -611,7 +611,7 @@ button:disabled, button:disabled:hover {
         bottom: 0.1rem;
         font-size: clamp(0.9rem, 3vw + 0.2rem, 2.5rem);
         top: 20%;
-        /* margin: 0 clamp(0rem, 1vw - 20px, 10px); */
+        margin: 0 clamp(0rem, 1vw - 20px, 10px);
     }
 
     .projectButtonContainer {
