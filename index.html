@@ -5,11 +5,13 @@
     <title>Oliver Ling | Student, Developer, Researcher, Full Stack Software Engineer</title>
     <meta name="description" content="An undergraduate Computer Science and AI student at the University of Nottingham. Experienced in full stack development, with a passion for creating meaningful products. Enjoys programming with TypeScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles.css" />
+    <link rel="stylesheet" href="/assets/styles.css"/>
+
+    <script>var exports = {};</script>  <!-- hack to make <any>.ts work -->
     <script src="/assets/script.js" defer> </script>
     <link rel="preload" href="/assets/extras.js" as="script" />
-    <link rel="preload" href="/about" as="document" />
-    <link rel="preload" href="/now" as="document" />
+    <link rel="prefetch" href="/about" />
+    <link rel="prefetch" href="/now" />
 
     <link rel="canonical" href="https://oling.dev" />
 </head>

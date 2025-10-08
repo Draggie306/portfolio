@@ -6,11 +6,17 @@ Built in raw HTML, CSS and JS. No fancy templates, frameworks or static site gen
 
 ## Build instructions
 
-The site can be run statically (e.g. GitHub/Cloudflare Pages) or with server-side logic (e.g. Cloudflare Workers).
+The site can be run statically (e.g. GitHub/Cloudflare Pages) or with server-side logic (e.g. Cloudflare Workers) - this is how [oling.dev](https://oling.dev) is deployed.
 
 1. Clone the repository and `cd` into it.
-2. If you want to put the site behind a authwall or run server-side, run `npx wrangler dev` and `npx wrangler deploy`.
-3. If not, copy the directory and open it in a browser, and click `index.html`.
+2. Transpile TypeScript into browser-friendly JS: run `tsc`
+3. Optional: run `npx wrangler dev` to run a local webserver, and `npx wrangler deploy` to deploy to Cloudflare Workers.
+
+```sh
+git clone https://github.com/draggie306/portfolio.git && cd ./portfolio && tsc && npx wrangler dev
+```
+
+
 
 ## Inspiration
 

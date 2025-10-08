@@ -7,9 +7,11 @@
         content="An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experienced in full stack development, with a passion for creating meaningful products. Skills include TypeScript/JavaScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles.css" />
+    
+    <script>var exports = {};</script>  <!-- hack to make <any>.ts work -->
     <script src="/assets/extras.js" defer> </script>
-    <link rel="preload" href="/about" as="document" />
-    <link rel="preload" href="/now" as="document" />
+    <link rel="prefetch" href="/about" />
+    <link rel="prefetch" href="/" />
 
     <link rel="canonical" href="https://oling.dev/now" />
 </head>

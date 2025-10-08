@@ -1,3 +1,6 @@
+/assets/*.js 
+/assets/*.js.map
+
 node_modules/*
 .wrangler
 .dev.vars

@@ -1,44 +1,50 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM Loaded");
+
     enableHoverEffects();
+
     // Render name typing
-    const windowName = window.location.pathname;
-    if (windowName == "/" || windowName == "/now") // index
-     {
-        typeText(document.querySelector("#typed-text"), charlist_name);
+
+    const windowName: string = window.location.pathname;
+    if (windowName == "/" || windowName == "/now" ) // index
+    {
+        typeText(document.querySelector<HTMLElement>("#typed-text"), charlist_name)
     }
     else if (windowName == "/things") {
-        typeText(document.querySelector("#typed-text-thingsdone"), charlist_things_done);
+        typeText(document.querySelector<HTMLElement>("#typed-text-thingsdone"), charlist_things_done)
     }
-    console.log(windowName);
+    console.log(windowName)
 });
-const charlist_name = "Oliver Ling".split('');
-const charlist_things_done = "Things I've done".split('');
+
+const charlist_name: string[] = "Oliver Ling".split('');
+const charlist_things_done: string[] = "Things I've done".split('');
+
 let i = 0;
 const speed = 100;
+
 /**
  * Emulate typing out of a string array.
  * @param {*} element The individual element
  * @param {*} charlist split string to type
  */
-function typeText(element, charlist) {
+function typeText(element: HTMLElement, charlist: string[]) {
     if (i < charlist.length) {
         element.innerHTML += charlist[i];
         i++;
+
         // Sorcery from https://stackoverflow.com/a/1190656
         setTimeout(function () {
-            typeText(element, charlist);
+            typeText(element, charlist)
         }, speed);
-    }
-    else {
+    } else {
         //document.querySelector(".cursor").style.display = "none"; // Hide cursor after typing
     }
+
     setTimeout(() => {
-        document.querySelector(".cursor").style.display = "none";
+        document.querySelector<HTMLElement>(".cursor").style.display = "none";
     }, 5500);
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     // Add all the project cards to main-grid-layout depending on order, default to "coolness" order
     const mainGridLayout = document.getElementById("main-grid-layout");
@@ -46,14 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Main grid layout not found; assuming not on index page");
         return;
     }
+
     repopulateGrid("coolness");
-    const selector = document.querySelector("#orderByLabel");
+
+    const selector = document.querySelector<HTMLInputElement>("#orderByLabel");
     selector.addEventListener('change', function () {
         const selectedValue = this.value;
         console.log("Selected order: " + selectedValue);
         repopulateGrid(selectedValue.toString().toLowerCase());
     });
 });
+
 function repopulateGrid(namedOrder) {
     const mainGridLayout = document.getElementById("main-grid-layout");
     if (!mainGridLayout) {
@@ -63,12 +72,15 @@ function repopulateGrid(namedOrder) {
     while (mainGridLayout.firstChild) {
         mainGridLayout.removeChild(mainGridLayout.firstChild);
     }
+
     projects.sort((a, b) => compare(a, b, namedOrder)).reverse(); // wtf?
     console.log("Sorted projects by " + namedOrder + ":", projects);
+
     projects.forEach(element => {
         // Create many children under main-grid-layout
         const projectCard = mainGridLayout.appendChild(document.createElement("div"));
         projectCard.classList.add("main-grid-project-card");
+
         // disgusting but it works
         projectCard.innerHTML = `<img src="${element.imgUrl ? element.imgUrl : 'assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
                                 <h2>${element.name}</h2>
@@ -79,6 +91,7 @@ function repopulateGrid(namedOrder) {
                                     </div>
                                 </div>`;
     });
+
     const finalElem = mainGridLayout.appendChild(document.createElement("div"));
     finalElem.classList.add("main-grid-more");
     finalElem.innerHTML = `<div class="main-grid-more">
@@ -87,15 +100,17 @@ function repopulateGrid(namedOrder) {
     console.log("Added project cards to main grid layout");
     enableHoverEffects();
 }
-function compare(a, b, term = "coolness") {
-    if (a.ratings[term] < b.ratings[term]) {
+
+function compare( a, b, term = "coolness" ) {
+    if ( a.ratings[term] < b.ratings[term] ){
         return -1;
     }
-    if (a.ratings[term] > b.ratings[term]) {
+    if ( a.ratings[term] > b.ratings[term] ){
         return 1;
     }
     return 0;
 }
+
 function enableHoverEffects() {
     // Fix: to not show the unfocus event, add a class for it only when DOM is loaded 
     const hover_elements = Array.from(document.querySelectorAll('.animation-hover')).concat(Array.from(document.querySelectorAll('.main-grid-project-card')));
@@ -103,13 +118,16 @@ function enableHoverEffects() {
         domNode.classList.add('main-grid-project-card-animator');
         // add class on first hover to enable exit animation only afterward
         domNode.addEventListener('mouseenter', function () {
+        
             // cancel pending removal
             if (this._removeTimeout) {
                 clearTimeout(this._removeTimeout);
                 this._removeTimeout = null;
             }
             this.classList.add('has-been-hovered');
-        });
+            }
+        );
+
         domNode.addEventListener('mouseleave', function () {
             // schedule removal, but only actually remove if still not hovered
             this._removeTimeout = setTimeout(() => {
@@ -120,6 +138,8 @@ function enableHoverEffects() {
             }, 400);
         });
     });
+
+
     const generic_hovereffect_items = document.querySelectorAll('.hover-effect');
     generic_hovereffect_items.forEach(node => {
         node.classList.add('hover-effect-animator');
@@ -127,12 +147,15 @@ function enableHoverEffects() {
         node.addEventListener('mouseenter', function () {
             this.classList.add('has-been-hovered');
         });
+
     });
+
     // document.getElementById("orderByLabel").classList.add("animation-hover");
     // document.getElementById("orderByLabel").addEventListener('mouseenter', function () {
     //     this.classList.add('has-been-hovered');
     // });
 }
+
 let projects = [
     {
         "name": "Stories",
@@ -369,4 +392,3 @@ let projects = [
         isSiteHidden: true
     }
 ];
-//# sourceMappingURL=script.js.map
