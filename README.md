@@ -16,6 +16,13 @@ The site can be run statically (e.g. GitHub/Cloudflare Pages) or with server-sid
 git clone https://github.com/draggie306/portfolio.git && cd ./portfolio && tsc && npx wrangler dev
 ```
 
+### Cloudflare Workers configuration
+
+Build command: `npm install typescript -g && tsc`
+
+Deploy command: `npx wrangler deploy`
+
+Root directory: `/`
 
 
 ## Inspiration
