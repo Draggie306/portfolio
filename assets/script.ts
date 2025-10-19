@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render name typing
 
     const windowName: string = window.location.pathname;
-    if (windowName == "/" || windowName == "/now" ) // index
+    if (windowName == "/" || windowName == "/now") // index
     {
         typeText(document.querySelector<HTMLElement>("#typed-text"), charlist_name)
     }
@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
 const charlist_name: string[] = "Oliver Ling".split('');
 const charlist_things_done: string[] = "Things I've done".split('');
 
-let i = 0;
-const speed = 100;
+let i: number = 0;
+const speed: number = 100;
 
 /**
  * Emulate typing out of a string array.
- * @param {*} element The individual element
- * @param {*} charlist split string to type
+ * @param {HTMLElement} element The individual element
+ * @param {string[]} charlist split string to type
  */
 function typeText(element: HTMLElement, charlist: string[]) {
     if (i < charlist.length) {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function repopulateGrid(namedOrder) {
+function repopulateGrid(namedOrder: string) {
     const mainGridLayout = document.getElementById("main-grid-layout");
     if (!mainGridLayout) {
         console.log("Main grid layout not found; assuming not on index page");
@@ -101,11 +101,11 @@ function repopulateGrid(namedOrder) {
     enableHoverEffects();
 }
 
-function compare( a, b, term = "coolness" ) {
-    if ( a.ratings[term] < b.ratings[term] ){
+function compare(a, b, term = "coolness") {
+    if (a.ratings[term] < b.ratings[term]) {
         return -1;
     }
-    if ( a.ratings[term] > b.ratings[term] ){
+    if (a.ratings[term] > b.ratings[term]) {
         return 1;
     }
     return 0;
@@ -118,14 +118,14 @@ function enableHoverEffects() {
         domNode.classList.add('main-grid-project-card-animator');
         // add class on first hover to enable exit animation only afterward
         domNode.addEventListener('mouseenter', function () {
-        
+
             // cancel pending removal
             if (this._removeTimeout) {
                 clearTimeout(this._removeTimeout);
                 this._removeTimeout = null;
             }
             this.classList.add('has-been-hovered');
-            }
+        }
         );
 
         domNode.addEventListener('mouseleave', function () {
@@ -186,7 +186,7 @@ let projects = [
             "coolness": 7.01,
             "added": 1750334052,
             "stars": 3,
-            "popularity": 34
+            "popularity": 14
         },
         isRepoDisabled: true,
         isSiteDisabled: true,
@@ -204,7 +204,7 @@ let projects = [
             "coolness": 4.1,
             "added": 1713961932,
             "stars": 0,
-            "popularity": 43
+            "popularity": 13
         },
         isRepoDisabled: true,
         isSiteDisabled: false,
@@ -240,7 +240,7 @@ let projects = [
             "coolness": 6.3,
             "added": 1713961932,
             "stars": 0,
-            "popularity": 22
+            "popularity": 9
         },
         isRepoDisabled: false,
         isSiteDisabled: true,
@@ -249,8 +249,8 @@ let projects = [
     },
     {
         "name": "Patient Assistance",
-        "desc": "An installable webapp allowing medical patients requiring care to quickly, easily and instantly request and receive help from others.",
-        "imgName": null,
+        "desc": "An installable webapp allowing medical patients requiring care to quickly, easily and instantly request and receive help from their carers via a WebSocket connection.",
+        "imgName": "patient-assist.png",
         "imgAlt": "Patient Assistance webapp logo",
         "repoUrl": "https://github.com/Draggie306/patient-assistance",
         "siteUrl": "https://patient-assist.ibaguette.com",
@@ -258,7 +258,7 @@ let projects = [
             "coolness": 6.75,
             "added": 1720799194,
             "stars": 1,
-            "popularity": 2
+            "popularity": 4
         },
         isRepoDisabled: false,
         isSiteDisabled: false,
@@ -312,7 +312,7 @@ let projects = [
             "coolness": 5.5,
             "added": 1719237285,
             "stars": 0,
-            "popularity": 77
+            "popularity": 57
         },
         isRepoDisabled: true,
         isSiteDisabled: false,
@@ -375,7 +375,7 @@ let projects = [
     },
     {
         "name": "BaguetteBot",
-        "desc": "A multi-purpose Discord.py bot for server management and administration, currency and a shop, automatic role distribution, bulk updates and music. Fun fact: I added OpenAI's GPT-3 models into it before ChatGPT existed!",
+        "desc": "A multi-purpose Discord.py bot for server management and administration, currency and a shop, automatic role distribution, bulk updates and music. Fun fact: a command to chat with OpenAI's GPT-3 models was added before ChatGPT existed!",
         "imgName": "baguettebot.png",
         "imgAlt": "BaguetteBot logo",
         "repoUrl": "https://github.com/Draggie306/BaguetteBot",
@@ -393,7 +393,7 @@ let projects = [
     },
     {
         "name": "Tools",
-        "desc": "A automatically-updating, terminal-based, installable Windows application, written in Python. Performs a range of tasks, from reverse-engineered game CDN downloads and asset extraction to YouTube downloading.",
+        "desc": "An automatically-updating, terminal-based, installable Windows application, written in Python. Performs a range of tasks, from reverse-engineered game CDN downloads and asset extraction to YouTube downloading.",
         "imgName": "dgames-draggietools-ui-v75.png",
         "imgAlt": "DraggieTools latest version preview.",
         "repoUrl": "https://github.com/Draggie306/DraggieTools",
@@ -403,6 +403,42 @@ let projects = [
             "added": 1650034026,
             "stars": 3,
             "popularity": 8
+        },
+        isRepoDisabled: false,
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: true,
+    },
+    {
+        "name": "Auto-Update Client",
+        "desc": "An automatically-updating background installable Windows daemon application, designed to accompany Draggie Games. Reads cryptographically-secure tokens and automatically downloads chunked game assets based on an account and entitlements.",
+        "imgName": "dgames-draggietools-ui-v75.png",
+        "imgAlt": "DraggieTools latest version preview.",
+        "repoUrl": "https://github.com/Draggie306/DraggieTools",
+        "siteUrl": null,
+        ratings: {
+            "coolness": 3,
+            "added": 1650034026,
+            "stars": 3,
+            "popularity": 8
+        },
+        isRepoDisabled: false,
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: true
+    },
+    {
+        "name": "Tutor Programme",
+        "desc": "Fully designed the UI/UX and implemented the internal platform for a sixth form \"Tutor Programme\", based on SharePoint with added scripts, to publish PowerPoints, news and information ranging from pastoral support to Oxbridge interview guidance. Used by 500 A Level students and 40 staff per year.",
+        "imgName": "tutorprogramme.png",
+        "imgAlt": "6th Form tutor programme",
+        "repoUrl": null,
+        "siteUrl": null,
+        ratings: {
+            "coolness": 3.5,
+            "added": 1693403654,
+            "stars": 0,
+            "popularity": 300
         },
         isRepoDisabled: false,
         isSiteDisabled: true,

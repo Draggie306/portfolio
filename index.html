@@ -3,15 +3,16 @@
 
 <head>
     <title>Oliver Ling | Student, Developer, Researcher, Full Stack Software Engineer</title>
-    <meta name="description" content="An undergraduate Computer Science and AI student at the University of Nottingham. Experienced in full stack development, with a passion for creating meaningful products. Enjoys programming with TypeScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
+    <meta name="description"
+        content="An undergraduate Computer Science and AI student at the University of Nottingham. Experienced in full stack development, with a passion for creating meaningful products. Enjoys programming with TypeScript, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/styles.css" />
 
-    <script>var exports = {};</script>  <!-- hack to make <any>.ts work -->
+    <script>var exports = {};</script> <!-- hack to make <any>.ts work -->
     <script src="/assets/script.js" defer> </script>
     <link rel="preload" href="/assets/extras.js" as="script" />
     <link rel="prefetch" href="/about" />
-    <link rel="prefetch" href="/now" />
+    <!-- <link rel="prefetch" href="/now" /> -->
 
     <link rel="canonical" href="https://oling.dev" />
 </head>
@@ -22,16 +23,22 @@
             <header>
                 <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h1>
                 <p>
-                    Hello! I'm Oliver, an undergraduate Computer Science with AI student at the University of Nottingham, currently in my second year. I love building software, making websites and utilities that have positive, tangible and real-world benefits. Beyond technology, I love learning & speaking different languages, and am interested in geography and photography amongst many other things.
+                    Hello! I'm Oliver, an undergraduate Computer Science with AI student at the University of
+                    Nottingham, currently in my second year. I love building software, making websites and utilities
+                    that have positive, tangible and real-world benefits. Beyond technology, I love learning & speaking
+                    different languages, and am interested in geography and photography amongst many other things.
                     <span><a href="/about">Read more about me ></a></span>
 
                     <!-- <br><br><NOTICE><br>\\Should I put that I am currently looking for a placement in cambridge?</NOTICE></p> -->
                 </p>
                 <nav class="nav">
                     <a href="https://github.com/Draggie306" target="_blank" rel="noreferrer">GitHub</a> |
-                    <a href="https://gb.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> | <!-- gb subdomain seems to allow viewing without authwall -->
+                    <a href="https://gb.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> <span
+                        class="hide-when-small">|</span>
+                    <!-- gb subdomain seems to allow viewing without authwall -->
+                    <br class="show-when-small" />
                     <a href="https://cdn.iBaguette.com/CV.pdf" target="_blank" rel="noreferrer">CV</a> |
-                    <a href="mailto:oliver@geog.uk" target="_blank" rel="noreferrer">Email</a>
+                    <a href="mailto:me@oling.dev" target="_blank" rel="noreferrer">Email</a>
                 </nav>
             </header>
         </div>
@@ -79,7 +86,7 @@
         <div class="bottom-sticky-bar-content">
             <a id="footer-button-what" href="/">Creations</a>
             <!-- <a id="footer-button-milestones" href="/milestones">Milestones</a> -->
-            <a id="footer-button-things" href="/now">Now</a>
+            <!-- <a id="footer-button-things" href="/now">Now</a> -->
             <a id="footer-button-who" href="/about">About</a>
         </div>
     </footer>

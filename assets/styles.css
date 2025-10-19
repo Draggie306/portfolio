@@ -9,13 +9,16 @@ html {
 
     /* Account for scrollbar */
     overflow-y: scroll;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox, Safari 18.2+, Chromium 121+ */
 
-    ::-webkit-scrollbar { 
-    display: none;  /* Older Safari and Chromium */
-}
-    
+    ::-webkit-scrollbar {
+        display: none;
+        /* Older Safari and Chromium */
+    }
+
 }
 
 body {
@@ -28,7 +31,7 @@ body {
     /* user-select: none; */
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
-    
+
     /* Add some space on the side! */
     margin-left: 5%;
     margin-right: 5%;
@@ -37,7 +40,8 @@ body {
 }
 
 /* Top header "navbar" colour */
-.nav a, .bottom-sticky-bar-content a {
+.nav a,
+.bottom-sticky-bar-content a {
     color: #00acff;
     text-decoration: underline;
     font-weight: bold;
@@ -57,14 +61,14 @@ header {
     margin-bottom: 5%;
 }
 
-header > p > span > a {
+header>p>span>a {
     color: #00acff;
 }
 
-header > p {
+header>p {
     margin: 0 auto 1.5rem;
     align-self: stretch;
-    text-align: center; 
+    text-align: center;
 }
 
 /* Colour change hover effect */
@@ -112,11 +116,13 @@ p {
 }
 
 /* "My Projects h1 */
-#title-projects, #title-projects-container {
+#title-projects,
+#title-projects-container {
     display: inline;
     font-size: 2rem;
     padding-left: 1rem;
-    > #mainText {
+
+    >#mainText {
         text-decoration: underline;
     }
 }
@@ -124,7 +130,7 @@ p {
 #orderByLabel {
     font-size: 1.2rem;
     text-align: left;
-    justify-content:center;
+    justify-content: center;
     align-self: baseline;
     color: #000;
     /* background-color: rgb(214, 214, 214); */
@@ -145,10 +151,14 @@ p {
 
     /* 03/07/2025 Fixes button alignment issues when nested - fix by Copilot (o4-mini) */
     position: absolute;
-    bottom: 0.25rem;          /* pin to bottom, adjust as needed */
-    left: 50%;             /* start at half‐width */
-    transform: translateX(-50%); /* shift back by half its own width */
-    margin: 0;             /* clear out the old margins */
+    bottom: 0.25rem;
+    /* pin to bottom, adjust as needed */
+    left: 50%;
+    /* start at half‐width */
+    transform: translateX(-50%);
+    /* shift back by half its own width */
+    margin: 0;
+    /* clear out the old margins */
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -158,9 +168,9 @@ p {
     padding: 25px;
 }
 
-.projectButtonContainer > button {
+.projectButtonContainer>button {
     background-color: #eeeeee;
-    font-size: large; 
+    font-size: large;
     border-radius: .75em;
     padding: 3px 10px;
 
@@ -170,26 +180,28 @@ p {
     outline-width: 0;
 }
 
-.projectButtonContainer > button:hover {
+.projectButtonContainer>button:hover {
     /* font-size: larger; */
-    transition: .4s; 
+    transition: .4s;
     background-color: #ffffff;
 }
 
-.projectButtonContainer > button:not(:hover) {
+.projectButtonContainer>button:not(:hover) {
     /* font-size: large; */
-    transition: .4s; 
+    transition: .4s;
 }
 
 /* Specifics for repository/view */
-.repo-button, .open-button {
+.repo-button,
+.open-button {
     background-color: #ffffff;
 }
 
 /* Override for disabled ones */
-button:disabled, button:disabled:hover {
+button:disabled,
+button:disabled:hover {
     font-size: large !important;
-    transition: none !important; 
+    transition: none !important;
     background-color: #eeeeee !important;
 }
 
@@ -198,18 +210,21 @@ button:disabled, button:disabled:hover {
     outline-offset: .75rem;
     outline-style: solid;
     outline-width: 0;
-    border-radius: .75rem; /* creates curved corner */
-    overflow: hidden; /* keeps content inside the rounded corners */
+    border-radius: .75rem;
+    /* creates curved corner */
+    overflow: hidden;
+    /* keeps content inside the rounded corners */
     position: relative;
     align-items: center;
     transition: transform 0.4s ease;
     background-color: rgba(30, 30, 34, 0.7);
     padding: 1rem;
     margin: 1.3rem;
-    flex: 1 1 calc(26% - 1rem); /* 3 cards per row with subtracted border gap */
+    flex: 1 1 calc(26% - 1rem);
+    /* 3 cards per row with subtracted border gap */
     /* display: inline-block; */
     min-width: 0;
-    
+
     height: 92%;
     /* border:#d3d3d3 1px solid; <--- Can't figure out if a border should go around each one? */
 }
@@ -218,8 +233,10 @@ button:disabled, button:disabled:hover {
 
 .main-grid-project-card h2 {
     position: absolute;
-    left: 0; right: 0;
-    top: 79%;            /* start 80% down */
+    left: 0;
+    right: 0;
+    top: 79%;
+    /* start 80% down */
     transform: none;
     text-align: center;
     width: 100%;
@@ -228,8 +245,8 @@ button:disabled, button:disabled:hover {
     margin-bottom: 5%;
     /* include font-size in the transition */
     transition: top 0.4s ease,
-                color 0.4s ease,
-                font-size 0.4s ease;
+        color 0.4s ease,
+        font-size 0.4s ease;
 }
 
 .main-grid-project-card:hover h2 {
@@ -243,7 +260,8 @@ button:disabled, button:disabled:hover {
 /* h3s in the main grid layout for each are the mini descriptions, hidden by default */
 .main-grid-project-card h3 {
     position: absolute;
-    display: none; /* hidden by default */
+    display: none;
+    /* hidden by default */
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
@@ -257,17 +275,21 @@ button:disabled, button:disabled:hover {
 
     /* 03/07/2025 Attempt to prevent inner element from resizing outer one https://stackoverflow.com/a/10692413 */
     position: absolute;
-    float:left;            /**/
-    overflow:hidden;       /**/
-    padding-bottom:0px;
+    float: left;
+    /**/
+    overflow: hidden;
+    /**/
+    padding-bottom: 0px;
 
 
     /* 03/07/2025 Centre elements when offset by padding - fix by Copilot. */
     left: 0;
     right: 0;
-    
-    overflow: hidden;  /* NEW */
-    min-width: 0;      /* NEW; needed for Firefox */
+
+    overflow: hidden;
+    /* NEW */
+    min-width: 0;
+    /* NEW; needed for Firefox */
 }
 
 
@@ -275,7 +297,7 @@ button:disabled, button:disabled:hover {
     display: block;
     font-size: clamp(0.5rem, 1vw + 0.15rem, 1.8rem);
     top: 30%;
-    
+
     /* Doherty Threshold */
     animation: fade-in-delay 0.4s ease-in-out;
 }
@@ -289,15 +311,26 @@ button:disabled, button:disabled:hover {
     overflow: hidden;
 }
 
+.show-when-small {
+    display: none !important;
+}
+
+.hide-when-small {
+    display: inline-block !important;
+}
+
+
 @keyframes move-up {
     0% {
         opacity: 0;
     }
+
     1% {
         opacity: 0.0;
     }
-    100% { 
-        transform: translateY(-205%); 
+
+    100% {
+        transform: translateY(-205%);
         opacity: 1;
     }
 }
@@ -306,9 +339,11 @@ button:disabled, button:disabled:hover {
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -318,6 +353,7 @@ button:disabled, button:disabled:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -325,16 +361,21 @@ button:disabled, button:disabled:hover {
 
 @keyframes outline-appear {
     0% {
-        outline-offset: 1.1rem; /* outwards and coming in */
-        outline-color: rgba(255, 255, 255, 0.2); 
+        outline-offset: 1.1rem;
+        /* outwards and coming in */
+        outline-color: rgba(255, 255, 255, 0.2);
         outline-width: 1px;
     }
-    60% { 
-        outline-offset: 0.4rem; /* Overshoot inward a bit */
+
+    60% {
+        outline-offset: 0.4rem;
+        /* Overshoot inward a bit */
         outline-width: 5px;
     }
-    100% { 
-        outline-offset: 0.5rem; /* Final position */
+
+    100% {
+        outline-offset: 0.5rem;
+        /* Final position */
         outline-color: rgba(255, 255, 255, 0.5);
         outline-width: 4px;
     }
@@ -342,16 +383,21 @@ button:disabled, button:disabled:hover {
 
 @keyframes outline-disappear {
     0% {
-        outline-offset: 0.5rem; /* Final position */
+        outline-offset: 0.5rem;
+        /* Final position */
         outline-color: rgba(255, 255, 255, 0.5);
         outline-width: 4px;
     }
-    60% { 
-        outline-offset: 0.4rem; /* Overshoot inward a bit */
+
+    60% {
+        outline-offset: 0.4rem;
+        /* Overshoot inward a bit */
         outline-width: 5px;
     }
-    100% { 
-        outline-offset: 1.1rem; /* outwards and coming in */
+
+    100% {
+        outline-offset: 1.1rem;
+        /* outwards and coming in */
         outline-color: rgba(255, 255, 255, 0.2);
         outline-width: 0rem;
     }
@@ -385,7 +431,8 @@ button:disabled, button:disabled:hover {
 
 
 .main-grid-project-card:hover .projectButtonContainer {
-    display: flex; /* Needed for justify-content */
+    display: flex;
+    /* Needed for justify-content */
     animation: fade-in 0.4s;
 }
 
@@ -395,7 +442,7 @@ button:disabled, button:disabled:hover {
     border-color: #727272; */
     border-radius: 0.75rem;
     transition: transform 0.4s ease, filter 0.4s ease;
-    outline:#8ad8ff;
+    outline: #8ad8ff;
 }
 
 
@@ -421,7 +468,8 @@ button:disabled, button:disabled:hover {
     background-color: rgba(30, 30, 34, 0.8);
     color: white;
     justify-content: center;
-    backdrop-filter: blur(0.5rem); /* you're joking */
+    backdrop-filter: blur(0.5rem);
+    /* you're joking */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -431,14 +479,15 @@ button:disabled, button:disabled:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    justify-content: space-evenly;
+
+    justify-content: center;
     /* flex-basis: 0; */
 }
 
-.bottom-sticky-bar-content > a  {
-    width: 33%;
+.bottom-sticky-bar-content>a {
+    width: 100%;
     height: 100%;
+    font-size: 1.2rem;
     text-align: center;
     border-left: 2px solid #3f3f3f;
     align-self: center;
@@ -462,25 +511,25 @@ button:disabled, button:disabled:hover {
     border: 5px dashed grey;
 
     /* Firefox fix for showing all in the same element [Copilot o4-mini] */
-    > img {
+    >img {
         flex-shrink: 0;
     }
 }
 
 #portrait-photo-rotator {
-    display: block;       
-    width: 100%;          
+    display: block;
+    width: 100%;
     height: 100%;
-    object-fit: cover;    
+    object-fit: cover;
     border-radius: 50%;
     animation: reveal 1s;
 }
 
 #portrait-photo-rotator-next {
     display: inline;
-    width: 100%;          
+    width: 100%;
     height: 100%;
-    object-fit: cover;    
+    object-fit: cover;
     border-radius: 50%;
     animation: reveal 1s;
 }
@@ -496,7 +545,7 @@ button:disabled, button:disabled:hover {
         font-size: large;
     }
 
-    
+
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -527,16 +576,28 @@ button:disabled, button:disabled:hover {
 
 /* typing out effect */
 .cursor {
-    animation: blink 1s infinite; /* So simple but effective */
+    animation: blink 1s infinite;
+    /* So simple but effective */
 }
 
 @keyframes blink {
-    50% { opacity: 0; } /* Holy moly, it's that easy */
+    50% {
+        opacity: 0;
+    }
+
+    /* Holy moly, it's that easy */
 }
 
 @keyframes reveal {
-    0% { opacity: 0; };
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    ;
+
+    100% {
+        opacity: 1;
+    }
 }
 
 
@@ -545,6 +606,16 @@ button:disabled, button:disabled:hover {
         margin-left: 3%;
         margin-right: 3%;
     }
+
+    .show-when-small {
+        display: inline-block !important;
+    }
+
+    .hide-when-small {
+        display: none !important;
+    }
+
+
     .main-grid-layout {
         grid-template-columns: repeat(1, 1fr);
         grid-row-gap: 5rem;
@@ -555,14 +626,16 @@ button:disabled, button:disabled:hover {
         /* override the “column” layout */
         /* display: inline-flex; */
         /* flex-direction: column; */
-        align-items: center;   /* vertically center text and select */
+        align-items: center;
+        /* vertically center text and select */
         padding-top: 5%;
         /* padding-left: 1rem !important; */
-        
+
         text-align: center;
     }
 
-    #title-projects, #title-projects-container {
+    #title-projects,
+    #title-projects-container {
         /* override the indent on big screen to fit small ones */
         padding-left: 0;
     }
@@ -580,16 +653,18 @@ button:disabled, button:disabled:hover {
         align-items: center;
 
         /* specific read more text good colour (else very dark) */
-        > p {
+        >p {
             margin-left: 5%;
             margin-right: 5%;
-            > span > a {
+
+            >span>a {
                 color: #00acff
             }
         }
 
         /* override */
-        #name-header, #name-header-large {
+        #name-header,
+        #name-header-large {
             text-align: center;
         }
 
@@ -638,12 +713,49 @@ button:disabled, button:disabled:hover {
         margin: 0 1vw;
     }
 
-    .projectButtonContainer > button {
+    .projectButtonContainer>button {
         bottom: 0;
         font-size: medium !important;
         gap: clamp(5px, 5vw - 12px, 10px);
     }
 }
+
+
+/* Cool web tech: view transitions */
+
+@view-transition {
+    navigation: auto;
+}
+
+/* @keyframes move-out {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes move-in {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+Apply the custom animation to the old and new page states 
+::view-transition-old(root) {
+    animation: 0.4s ease-in both move-out;
+}
+
+::view-transition-new(root) {
+    animation: 0.4s ease-in both move-in;
+} */
+
 
 #special-temp-dontuse-css {
     background-position-x: 50%;
@@ -670,7 +782,7 @@ button:disabled, button:disabled:hover {
     box-sizing: border-box;
     color: rgb(0, 0, 0);
     display: block;
-    font-family:    'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-variation-settings: "wdth" 670, "wght" 650;
     line-height: 20px;

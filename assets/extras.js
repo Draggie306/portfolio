@@ -41,17 +41,18 @@ function typeText(element, charlist) {
         document.querySelector(".cursor").style.display = "none";
     }, 5500);
 }
+// Order: cycles every 5 seconds from top -> bottom, see function typeText
 const photos = [
     "/assets/images/features/headshot.png", // Main classic photo - awards
-    "/assets/images/features/djanogly.jpg", // Jubilee DLRC (notts)
-    "/assets/images/features/jess.png", // Caius! (Cambs)
-    "/assets/images/features/computerphile-square.JPG", // Play Button (notts)
-    "/assets/images/features/caribou-square.jpg", // Canadian Caribou
-    "/assets/images/features/kings-square.JPG", // King's College (cambs)
+    "/assets/images/features/djanogly.jpg", // Outside Jubilee DLRC (notts)
+    "/assets/images/features/jess.png", // Inside Caius! (Cambs)
+    "/assets/images/features/computerphile-square.JPG", // near Play Button (notts)
+    "/assets/images/features/caribou-square.jpg", // below Canadian Caribou
+    "/assets/images/features/kings-square.JPG", // inside King's College (cambs)
 ];
 /**
  * awful function to load an img into cache
- * @param {*} url
+ * @param {string} url
  */
 function preloadImage(url) {
     var img = new Image();
