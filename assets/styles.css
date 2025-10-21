@@ -721,11 +721,44 @@ button:disabled:hover {
 }
 
 
-/* Cool web tech: view transitions */
+/*  
+    Cool web tech: view transitions 
+    Found watching Theo: https://youtu.be/g-CGIWHeSyo&t=457
+*/
 
 @view-transition {
     navigation: auto;
 }
+
+
+#name-header-large,
+#name-header {
+    view-transition-name: logo;
+}
+
+/* ::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+} */
+/* 
+@keyframes logo-slide-out {
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes logo-slide-in {
+    from {
+        transform: translateY(8px);
+    }
+}
+
+::view-transition-old(logo),
+::view-transition-new(logo) {
+    opacity: 1;
+    filter: none;
+} */
+
 
 /* @keyframes move-out {
     from {

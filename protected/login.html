@@ -39,7 +39,7 @@
         auth_token = JSON.parse(response_text).auth_token;
         console.log("auth_token: " + auth_token);
 
-        alert(`Access granted... welcome to the top secret area. please don't bash my wonderful creation too much :)`);
+        alert(`Access granted... welcome to the top secret area. please don't judge my wonderful creation too much :)`);
 
         // passed the check!
         document.cookie = `auth_token=${auth_token}; path=/;s`;
