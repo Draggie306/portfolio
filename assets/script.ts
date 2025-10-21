@@ -76,13 +76,18 @@ function repopulateGrid(namedOrder: string) {
     projects.sort((a, b) => compare(a, b, namedOrder)).reverse(); // wtf?
     console.log("Sorted projects by " + namedOrder + ":", projects);
 
+    // Lighthouse micro-optimisations: the first 3 elements (decided based on desktop viewport in css) should not be lazily loaded, and should be higher priority
+
+    // See https://web.dev/articles/fetch-priority and spec: https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-fetchpriority
+    let element_count: number = 0;
+    
     projects.forEach(element => {
         // Create many children under main-grid-layout
         const projectCard = mainGridLayout.appendChild(document.createElement("div"));
         projectCard.classList.add("main-grid-project-card");
 
         // disgusting but it works
-        projectCard.innerHTML = `<img loading="lazy" src="${element.imgName ? ("assets/images/" + element.imgName) : '/assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
+        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? ("assets/images/" + element.imgName) : '/assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
@@ -90,6 +95,11 @@ function repopulateGrid(namedOrder: string) {
                                     ${(element.isSiteHidden === false && (element.siteUrl ?? false)) ? `<button id ="${element.name}Site" ${element.isSiteDisabled ? 'disabled' : ''} class="site-button animation-hover" onclick="window.open('${element.siteUrl}', '_blank')">View Site</button>` : ''}
                                     </div>
                                 </div>`;
+
+        element_count++;
+
+        // Check which projects have been lazily loaded
+        // console.log(element_count > 3 ? element.name : "");
     });
 
     const finalElem = mainGridLayout.appendChild(document.createElement("div"));
