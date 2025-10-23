@@ -73,7 +73,7 @@ function repopulateGrid(namedOrder) {
         const projectCard = mainGridLayout.appendChild(document.createElement("div"));
         projectCard.classList.add("main-grid-project-card");
         // disgusting but it works
-        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? ("assets/images/" + element.imgName) : '/assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
+        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? (element.imgUseOptimised ? "assets/images/optimised/" : "assets/images/") + element.imgName + element.imgExt : '/assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
@@ -143,7 +143,9 @@ let projects = [
     {
         "name": "Stories",
         "desc": "A web experience, focused on UI and UX, written in pure HTML and CSS with minimal scripting and zero AI use. Also a playground to publish some of my creative writing.",
-        "imgName": "stories.png",
+        "imgName": "stories",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "iBaguette Stories logo",
         "repoUrl": "https://github.com/Draggie306/stories",
         "siteUrl": "https://stories.ibaguette.com",
@@ -161,7 +163,9 @@ let projects = [
     {
         "name": "Study", // Ronaaaaaan
         "desc": "Coming soon. A brand new study platform: upload, browse, search and learn from real, marked exam papers - it's the only database of NEAs, EPQs and personal statements like it. Uses the latest web tech: React and Next.js.",
-        "imgName": "study.png",
+        "imgName": "study",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "Study logo",
         "repoUrl": "https://github.com/iBaguette/study",
         "siteUrl": "https://study.ibaguette.com",
@@ -215,7 +219,9 @@ let projects = [
     {
         "name": "Project Saturnian",
         "desc": "A water simulation game in Unity (C#). Avoid the rising water, collect tokens, escape. Also has cryptographically secure login functionality, inventory systems and dynamic asset downloading. Part of my A Level project.",
-        "imgName": "dgames-saturnianbanner.png",
+        "imgName": "dgames-saturnianbanner",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "Project Saturnian logo",
         "repoUrl": "https://github.com/Draggie306/project-saturnian",
         "siteUrl": null,
@@ -233,7 +239,9 @@ let projects = [
     {
         "name": "Patient Assistance",
         "desc": "An installable webapp allowing medical patients requiring care to quickly, easily and instantly request and receive help from their carers via a WebSocket connection.",
-        "imgName": "patient-assist.png",
+        "imgName": "patient-assist",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "Patient Assistance webapp logo",
         "repoUrl": "https://github.com/Draggie306/patient-assistance",
         "siteUrl": "https://patient-assist.ibaguette.com",
@@ -269,7 +277,9 @@ let projects = [
     {
         "name": "YouTube Channel",
         "desc": "My monetised YouTube channel, showcasing UHD game soundtracks programatically extracted from game binaries, streams of live events, my academic achievements, and more. >2k subscribers and >2M views.",
-        "imgName": "youtube.png",
+        "imgName": "youtube",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "YouTube channel logo",
         "repoUrl": null,
         "siteUrl": "https://www.youtube.com/@Draggie306",
@@ -287,7 +297,9 @@ let projects = [
     {
         "name": "Infinite Ping Test",
         "desc": "A browser utility used to measure and analyse realtime ping RTT over an indefinite period to identify network issues/possible WAP optimisations. Built with the websockets API and Cloudflare Workers. Formerly Infiniping.",
-        "imgName": "ping.png",
+        "imgName": "ping",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "Graph of ping test on the Infinite Ping Test project site",
         "repoUrl": null,
         "siteUrl": "https://draggie306.github.io/ping-test",
@@ -305,7 +317,9 @@ let projects = [
     {
         "name": "geog.uk",
         "desc": "A future platform to connect and collaborate with passionate geographers across the UK, to organise talks, field trips and to share information. Inspired by my multi-disciplinary love for many subjects. Work in progress.",
-        "imgName": "geog.uk.png",
+        "imgName": "geog.uk",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "geog.uk logo",
         "repoUrl": "https://github.com/Draggie306/geog.uk",
         "siteUrl": "https://geog.uk",
@@ -341,7 +355,9 @@ let projects = [
     {
         "name": "Kaspersky to CSV",
         "desc": "Uses rule-based evaluation to convert Kaspersky Password Manager's unfriendly exported files into Chromium-compatible CSV datasets for importing or exporting accounts.",
-        "imgName": "kaspersky.png",
+        "imgName": "kaspersky",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "Kaspersky to CSV page screenshot",
         "repoUrl": "https://github.com/Draggie306/Kaspersky-to-CSV",
         "siteUrl": "https://kaspersky-to-csv.ibaguette.com",
@@ -359,7 +375,9 @@ let projects = [
     {
         "name": "BaguetteBot",
         "desc": "A multi-purpose Discord.py bot for server management and administration, currency and a shop, automatic role distribution, bulk updates and music. Fun fact: a command to chat with OpenAI's GPT-3 models was added before ChatGPT existed!",
-        "imgName": "baguettebot.png",
+        "imgName": "baguettebot",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "BaguetteBot logo",
         "repoUrl": "https://github.com/Draggie306/BaguetteBot",
         "siteUrl": null,
@@ -377,7 +395,9 @@ let projects = [
     {
         "name": "Tools",
         "desc": "An automatically-updating, terminal-based, installable Windows application, written in Python. Performs a range of tasks, from reverse-engineered game CDN downloads and asset extraction to YouTube downloading.",
-        "imgName": "dgames-draggietools-ui-v75.png",
+        "imgName": "dgames-draggietools-ui-v75",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "DraggieTools latest version preview.",
         "repoUrl": "https://github.com/Draggie306/DraggieTools",
         "siteUrl": null,
@@ -395,7 +415,9 @@ let projects = [
     {
         "name": "Auto-Update Client",
         "desc": "An automatically-updating background installable Windows daemon application, designed to accompany Draggie Games. Reads cryptographically-secure tokens and automatically downloads chunked game assets based on an account and entitlements.",
-        "imgName": "dgames-draggietools-ui-v75.png",
+        "imgName": "dgames-draggietools-ui-v75",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "DraggieTools latest version preview.",
         "repoUrl": "https://github.com/Draggie306/DraggieTools",
         "siteUrl": null,
@@ -413,7 +435,9 @@ let projects = [
     {
         "name": "Tutor Programme",
         "desc": "Fully designed the UI/UX and implemented the internal platform for a sixth form \"Tutor Programme\", based on SharePoint with added scripts, to publish PowerPoints, news and information ranging from pastoral support to Oxbridge interview guidance. Used by 500 A Level students and 40 staff per year.",
-        "imgName": "tutorprogramme.png",
+        "imgName": "tutorprogramme",
+        "imgUseOptimised": true,
+        "imgExt": ".webp",
         "imgAlt": "6th Form tutor programme",
         "repoUrl": null,
         "siteUrl": null,

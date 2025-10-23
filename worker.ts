@@ -30,7 +30,7 @@ export default {
             const auth_token = url.searchParams.get("auth_token");
 
             // Hardcoded for now
-            if (auth_token === env.SUPER_SECRET_AUTH_TOKEN) {
+            if (auth_token === env.SUPER_SECRET_AUTH_TOKEN || auth_token === env.SUPER_SECRET_AUTH_TOKEN2) {
                 return new Response(JSON.stringify(
                     {
                         "auth_token": env.SUPER_SECRET_AUTH_TOKEN,
@@ -52,7 +52,7 @@ export default {
 
         const given_token_value = auth_cookie ? auth_cookie.split("=")[1] : null;
 
-        if ((!given_token_value) || (given_token_value !== env.SUPER_SECRET_AUTH_TOKEN)) {
+        if ((!given_token_value) || (given_token_value !== env.SUPER_SECRET_AUTH_TOKEN && given_token_value !== env.SUPER_SECRET_AUTH_TOKEN2)) {
             console.log("cookie not entered or is invalid");
             return await return_protected(request, env, 2);
         }
