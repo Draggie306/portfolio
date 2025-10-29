@@ -88,7 +88,8 @@ function repopulateGrid(namedOrder) {
     const finalElem = mainGridLayout.appendChild(document.createElement("div"));
     finalElem.classList.add("main-grid-more");
     finalElem.innerHTML = `<div class="main-grid-more">
-                <p class="more-text">... and more coming soon!</p>
+                <p class="more-text">... and more, coming soon!</p>
+                <p class="below-more-text">*Note: I do <strong>not</strong> include university coursework or assignments here.</p>
             </div>`;
     console.log("Added project cards to main grid layout");
     enableHoverEffects();
@@ -201,7 +202,9 @@ let projects = [
     {
         "name": "Cheat Sheets",
         "desc": "A revision resource site full of human-written notes for entire GCSEs and A Level subjects, with all the information needed to get top grades. Used by over 10,000 students annually!",
-        "imgName": null,
+        "imgName": "CheatSheetsPoster@0.3x-min",
+        "imgUseOptimised": false,
+        "imgExt": ".png",
         "imgAlt": "iBaguette Cheat Sheets logo",
         "repoUrl": "https://github.com/Draggie306/CheatSheets",
         "siteUrl": "https://ibaguette.com/cheatsheets",
@@ -337,7 +340,9 @@ let projects = [
     {
         "name": "iBaguette",
         "desc": "My most popular and first website with a range of articles, revision guides, technical blog posts and more. Monetised by Google Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
-        "imgName": null,
+        "imgName": "ibaguette-mainsite",
+        "imgUseOptimised": false,
+        "imgExt": ".png",
         "imgAlt": "iBaguette logo",
         "repoUrl": "https://github.com/Draggie306/iBaguette",
         "siteUrl": "https://ibaguette.com",
@@ -446,6 +451,26 @@ let projects = [
             "added": 1693403654,
             "stars": 0,
             "popularity": 300
+        },
+        isRepoDisabled: false,
+        isSiteDisabled: true,
+        isRepoHidden: false,
+        isSiteHidden: true
+    },
+    {
+        "name": "Medieval Tower Defense",
+        "desc": "Help Robin Hood defend his tower from waves of enemies. Includes pathfinding, animations, waves of enemies, a upgrade shop, powerups and an online leaderboard. Built during a 24-hour hackathon (HackNotts '25) in Pygame!",
+        "imgName": "hacknotts-25",
+        "imgUseOptimised": false,
+        "imgExt": ".gif",
+        "imgAlt": "Medieval Fantasy Tower Defense game gif",
+        "repoUrl": "https://github.com/iBaguette/hacknotts-25",
+        "siteUrl": null,
+        ratings: {
+            "coolness": 6.6,
+            "added": 1761610307,
+            "stars": 0,
+            "popularity": 5
         },
         isRepoDisabled: false,
         isSiteDisabled: true,

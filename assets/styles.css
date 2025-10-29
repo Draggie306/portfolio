@@ -457,6 +457,21 @@ button:disabled:hover {
     }
 }
 
+p.more-text {
+    font-style: normal;
+    margin-bottom: 0px;
+    text-align: left;
+    padding-left: 10%;
+}
+
+p.below-more-text {
+    margin-top: 5px;
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: left;
+    padding: 0 10% 0 10%;
+}
+
 /* New: Bottom sticky bar that shows the page */
 
 .bottom-sticky-bar {
