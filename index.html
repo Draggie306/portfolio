@@ -25,10 +25,16 @@
 </head>
 
 <body>
+    <a class="skip-link sr-only sr-only-focusable" href="#main-content">Skip to main content</a>
     <section>
         <div>
-            <header role="heading">
-                <h1 id="name-header"><span id="typed-text"></span><span class="cursor">|</span></h1>
+            <header>
+                <h1 id="name-header">
+                    <span class="sr-only">Oliver Ling</span>
+                    <span aria-hidden="true" id="typing-text-container">
+                        <span id="typed-text"></span><span class="cursor" aria-hidden="true">|</span>
+                    </span>
+                </h1>
                 <p>
                     Hello! I'm Oliver, an undergraduate Computer Science and AI student at the University of
                     Nottingham, currently in my second year. I love building software, making websites and utilities
@@ -38,7 +44,7 @@
 
                     <!-- <br><br><NOTICE><br>\\Should I put that I am currently looking for a placement in cambridge?</NOTICE></p> -->
                 </p>
-                <nav class="nav" role="navigation">
+                <nav class="nav" aria-label="Primary">
                     <a href="https://github.com/Draggie306" target="_blank" rel="noreferrer">GitHub</a> |
                     <a href="https://gb.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> <span
                         class="hide-when-small">|</span>
@@ -52,11 +58,12 @@
     </section>
 
     <!-- Main grid layout -->
-    <section role="main">
+    <main id="main-content" role="main" tabindex="0">
         <div id="title-projects-container">
-            <h1 id="title-projects"><span id="mainText">My Projects, ordered by:</span></h1>
+            <h2 id="title-projects"><span id="mainText">My Projects, ordered by:</span></h2>
 
             <label for="orderByLabel"></label>
+            <label for="orderByLabel" class="sr-only">Order projects by</label>
             <select name="orderByLabel" aria-label="Order By" class="hover-effect" id="orderByLabel">
                 <option value="coolness">Coolest &#10024;</option>
                 <option value="added">Most Recent</option>
@@ -87,11 +94,11 @@
                 h3.project-card-desc
             </div> -->
         </div>
-    </section>
+    </main>
 
     <footer class="bottom-sticky-bar" role="contentinfo">
         <div class="bottom-sticky-bar-content">
-            <a id="footer-button-what" href="/">Creations</a>
+            <a id="footer-button-what" href="/" aria-current="page">Creations</a>
             <!-- <a id="footer-button-milestones" href="/milestones">Milestones</a> -->
             <!-- <a id="footer-button-things" href="/now">Now</a> -->
             <a id="footer-button-who" href="/about">About</a>

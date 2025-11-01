@@ -19,18 +19,22 @@
 </head>
 
 <body>
+    <a class="skip-link sr-only sr-only-focusable" href="#about-me-paragraphs">Skip to main content</a>
     <section>
         <div>
-            <header id="about-me-header" role="heading">
-                <h1 id="name-header-large">Oliver Ling</h1>
+            <header id="about-me-header">
+                <h1 id="name-header-large">
+                    <span class="sr-only">Oliver Ling</span>
+                    <span aria-hidden="true" id="typing-container-about">Oliver Ling</span>
+                </h1>
 
-                <div id="portrait-photo-container" class="portrait-photo-container" loading="lazy">
-                    <img src="/assets/images/features/headshot.png" alt="" id="portrait-photo-rotator"
-                        class="portrait-photo-rotator" loading="lazy">
-                    <img src="/assets/images/features/jess.png" alt="" id="portrait-photo-rotator-next"
-                        class="portrait-photo-rotator-next" loading="lazy">
+                <div id="portrait-photo-container" class="portrait-photo-container" loading="lazy" aria-hidden="true">
+                    <img src="/assets/images/optimised/features/headshot.webp" alt="" id="portrait-photo-rotator" role="presentation" aria-hidden="true"
+                        class="portrait-photo-rotator" loading="lazy" aria-hidden="true">
+                    <img src="/assets/images/optimised/features/jess.webp" alt="" id="portrait-photo-rotator-next"
+                        class="portrait-photo-rotator-next" loading="lazy" role="presentation" aria-hidden="true">
                 </div>
-                <nav class="nav">
+                <nav class="nav" aria-label="Primary">
                     <a href="https://github.com/Draggie306" target="_blank" rel="noreferrer">GitHub</a> |
                     <a href="https://gb.linkedin.com/in/oliver-ling" target="_blank" rel="noreferrer">LinkedIn</a> <span
                         class="hide-when-small">|</span>
@@ -42,9 +46,9 @@
         </div>
     </section>
 
-    <section id="about-me-paragraphs" role="main">
+    <main id="about-me-paragraphs" role="main" tabindex="0">
         <div id="title-projects-container">
-            <h1 id="title-projects"><span id="mainText">About Me</span></h1>
+            <h2 id="title-projects"><span id="mainText">About Me</span></h2>
             <label for="orderByLabel"></label>
             <!-- 
             <img style="display: inline;" src="https://c.oling.dev/api/activity/chart/draggie.svg" alt="Total time coded since Dec 10, 2023" /> -->
@@ -71,7 +75,7 @@
                     working on programming projects. I achieved 11 GCSEs (specifically 6 at Grade 9, 4 at Grade 8, and
                     one Grade 7) including a 9 in English Language and 8 in Mathematics. Full academic results can be
                     found <a href="https://www.linkedin.com/in/oliver-ling/details/education/" target="_blank"
-                        rel="noopener noreferrer">here</a>.</p>
+                        rel="noopener noreferrer">on my LinkedIn education section</a>.</p>
                 <p>Then, I studied A Levels in French, Geography and Computer Science and chose an additional EPQ on AI
                     at <a href="https://ndhs.org.uk" target="_blank" rel="noopener noreferrer">Notre Dame High School,
                         Norwich</a>. I achieved A*AA and an A* in the EPQ and served many roles; most notably elected as
@@ -139,14 +143,14 @@
 
         <br><br><br><br>
 
-    </section>
+    </main>
 
     <footer class="bottom-sticky-bar" role="contentinfo">
         <div class="bottom-sticky-bar-content">
             <a id="footer-button-what" href="/">Creations</a>
             <!-- <a id="footer-button-milestones" href="/milestones">Milestones</a> -->
             <!-- <a id="footer-button-things" href="/now">Now</a> -->
-            <a id="footer-button-who" href="/about">About</a>
+            <a id="footer-button-who" href="/about" aria-current="page">About</a>
             <!-- One of: what I've made, what I've done, who I am -->
         </div>
     </footer>
