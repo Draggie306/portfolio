@@ -1,5 +1,4 @@
-/assets/*.js 
-/assets/*.js.map
+src/assets/*.js*
 
 node_modules/*
 .wrangler

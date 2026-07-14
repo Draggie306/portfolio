@@ -11,13 +11,6 @@
 
 export default {
     async fetch(request: Request, env: { ASSETS: { fetch: (arg0: string) => any; }; SUPER_SECRET_AUTH_TOKEN: string | null; }, ctx: any) {
-
-        if (env.USE_AUTH === "false") {
-            console.log("returning static asset");
-            return env.ASSETS.fetch(request.url);
-        }
-
-        // Check login route first: early returns 
         const url = new URL(request.url);
         const path = url.pathname;
 
@@ -65,11 +58,7 @@ export default {
         // By now, it has passed all checks, so the user has logged in successfully before.
         // Therefore, return their requested static asset.
 
-        console.log("returning static asset")
         return env.ASSETS.fetch(request.url);
-        // return new Response( html_content, {
-        //     headers: {"Content-Type": "text/html"}
-        // })
     },
 };
 

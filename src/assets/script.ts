@@ -87,7 +87,7 @@ function repopulateGrid(namedOrder: string) {
         projectCard.classList.add("main-grid-project-card");
 
         // disgusting but it works
-        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? (element.imgUseOptimised ? "https://oling.dev/cdn-cgi/image/width=auto,format=webp/assets/images/optimised/" : "assets/images/") + element.imgName + element.imgExt : 'https://oling.dev/cdn-cgi/image/width=auto,format=webp/https://oling.dev/assets/images/placeholder.png'}" alt="${element.imgAlt ? element.imgAlt : element.name}">
+        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? (element.imgUseOptimised ? "https://oling.dev/cdn-cgi/image/width=512,format=webp/assets/images/optimised/" : "assets/images/") + element.imgName + element.imgExt : 'https://oling.dev/cdn-cgi/image/width=512,format=webp/https://oling.dev/assets/images/placeholder.png'}" alt="${element.imgAlt ?? element.name}">
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
@@ -368,7 +368,7 @@ let projects = [
         "name": "iBaguette",
         "desc": "My most popular and first website with a range of articles, revision guides, technical blog posts and more. Monetised by Google Adsense. Runs on Cloudflare. Sees 30k+ users and transfers >400GB/year.",
         "imgName": "ibaguette-mainsite",
-        "imgUseOptimised": false,
+        "imgUseOptimised": true,
         "imgExt": ".png",
         "imgAlt": "iBaguette logo",
         "repoUrl": "https://github.com/Draggie306/iBaguette",
@@ -488,7 +488,7 @@ let projects = [
         "name": "Medieval Tower Defense",
         "desc": "Help Robin Hood defend his tower from waves of enemies. Includes pathfinding, animations, waves of enemies, a upgrade shop, powerups and an online leaderboard. Built during a 24-hour hackathon (HackNotts '25) in Pygame!",
         "imgName": "hacknotts-25",
-        "imgUseOptimised": false,
+        "imgUseOptimised": true,
         "imgExt": ".gif",
         "imgAlt": "Medieval Fantasy Tower Defense game gif",
         "repoUrl": "https://github.com/iBaguette/hacknotts-25",

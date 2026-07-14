@@ -8,6 +8,6 @@
 
   // Don't include worker code
   "include": [
-    "assets/**/*.ts"
+    "src/assets/*.ts"
   ],
 }

@@ -12,7 +12,7 @@
 let html_content = `<!DOCTYPE html>
 <head>
     <title>Oliver Ling | Student, Developer, Full Stack Engineer</title>
-    <meta name = "description" content = "An undergrad Year 1 student at the University of Nottingham, studying Computer Science. Experience in full stack development, including TypeScript/JavaScript, React, Next.js, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
+    <meta name = "description" content = "A final-year undergraduate at the University of Nottingham, studying Computer Science. Experience in full stack development, including TypeScript/JavaScript, React, Next.js, C, C#, Java, Haskell, Python, HTML, CSS, and SQL.">
 
     <style>
         body {
