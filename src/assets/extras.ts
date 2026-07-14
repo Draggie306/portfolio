@@ -1,3 +1,4 @@
+const IMAGE_PATH = "/assets/images/features/";
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log(`DOM Loaded on ${window.location.pathname}`);
@@ -49,12 +50,13 @@ function typeText(element: HTMLElement, charlist: string[]) {
 
 // Order: cycles every 5 seconds from top -> bottom, see function typeText
 const photos: string[] = [
-    "/assets/images/features/headshot.webp",              // Main classic photo - awards
-    "/assets/images/features/djanogly.webp",              // Outside Jubilee DLRC (notts)
-    "/assets/images/features/jess.webp",                  // Inside Caius! (Cambs)
-    "/assets/images/features/computerphile.webp",         // near Play Button (notts)
-    "/assets/images/features/caribou.webp",               // below Canadian Caribou
-    "/assets/images/features/kings-square.webp",          // inside King's College (cambs)
+    "headshot.webp",              // Main classic photo - awards
+    "djanogly.webp",              // Outside Jubilee DLRC (notts)
+    "jess.webp",                  // Inside Caius! (Cambs)
+    "computerphile.webp",         // near Play Button (notts)
+    "caribou.webp",               // below Canadian Caribou
+    "kings-square.webp",          // inside King's College (cambs)
+    "sanmarino.jpg",              // San Marino (San Marino)
 ];
 
 /**
@@ -63,7 +65,7 @@ const photos: string[] = [
  */
 function preloadImage(url: string) {
    var img=new Image();
-   img.src=url;
+   img.src="/assets/images/features/" + url;
    console.log("Preloaded image: " + url);
 }
 
@@ -84,25 +86,26 @@ async function cyclePortraitPhotos() {
     const element_next = document.getElementById("portrait-photo-rotator-next") as HTMLImageElement;
 
     let currentIndex = 0;
-    element.src = photos[currentIndex];
+    element.src = IMAGE_PATH + photos[currentIndex];
     await element.decode();
 
     console.log(`Starting photo rotator with photo: ${element.src}`);
 
     setInterval(async () => {
         // const start_ms = Date.now();
-        element_next.src = photos[(currentIndex + 1) % photos.length];
+        element_next.src = IMAGE_PATH + photos[(currentIndex + 1) % photos.length];
         await element_next.decode();
         // const end_ms = Date.now();
         // console.log(`Decoded next photo: ${element_next.src} in ${end_ms - start_ms}ms`);
         
         // swap current to next
-        // element_next.src = photos[(currentIndex + 1) % photos.length];
+        // element_next.src = IMAGE_PATH + photos[(currentIndex + 1) % photos.length];
         // console.log(`Now swapped next photo to: ${element_next.src}`);
 
         // increment position in photos array
         currentIndex = (currentIndex + 1) % photos.length;
 
+        // TODO: ensure animation has no race conditions, use animation.finished promise instead of timeout.
         element.animate(
             [{ transform: "translateY(0)" }, { transform: "translateX(-100%)" }],
             { duration: 1000, easing: "ease-in-out" }
@@ -113,11 +116,11 @@ async function cyclePortraitPhotos() {
         );
 
         setTimeout(() => {
-            element.src = photos[currentIndex];
+            element.src = IMAGE_PATH + photos[currentIndex];
             console.log(`Changed current photo to: ${element.src}`);
         }, 950); // Must wait for animation to finish
 
-        element_next.src = photos[currentIndex];
+        element_next.src = IMAGE_PATH + photos[currentIndex];
         console.log(`Now swapped next photo to: ${element_next.src}`);
 
         // New way to sleep for remaining time for non-blocking
