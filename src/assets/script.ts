@@ -87,7 +87,7 @@ function repopulateGrid(namedOrder: string) {
         projectCard.classList.add("main-grid-project-card");
 
         // disgusting but it works
-        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? (element.imgUseOptimised ? "https://oling.dev/cdn-cgi/image/width=512,format=webp/assets/images/optimised/" : "assets/images/") + element.imgName + element.imgExt : 'https://oling.dev/cdn-cgi/image/width=512,format=webp/https://oling.dev/assets/images/placeholder.png'}" alt="${element.imgAlt ?? element.name}">
+        projectCard.innerHTML = `<img ${element_count > 3 ? "loading=\"lazy\"" : "fetchPriority=\"high\""} src="${element.imgName ? (element.imgUseOptimised ? "https://oliverling.uk/cdn-cgi/image/width=512,format=webp/assets/images/optimised/" : "assets/images/") + element.imgName + element.imgExt : 'https://oliverling.uk/cdn-cgi/image/width=512,format=webp/https://oliverling.uk/assets/images/placeholder.png'}" alt="${element.imgAlt ?? element.name}">
                                 <h2>${element.name}</h2>
                                 <h3 class="project-desc">${element.desc}</h3>
                                 <div id="${element.name}ButtonContainer" class="projectButtonContainer">
