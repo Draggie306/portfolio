@@ -49,12 +49,12 @@ function typeText(element: HTMLElement, charlist: string[]) {
 
 // Order: cycles every 5 seconds from top -> bottom, see function typeText
 const photos: string[] = [
-    "/assets/images/optimised/features/headshot.webp",              // Main classic photo - awards
-    "/assets/images/optimised/features/djanogly.webp",              // Outside Jubilee DLRC (notts)
-    "/assets/images/optimised/features/jess.webp",                  // Inside Caius! (Cambs)
-    "/assets/images/optimised/features/computerphile.webp",         // near Play Button (notts)
-    "/assets/images/optimised/features/caribou.webp",               // below Canadian Caribou
-    "/assets/images/optimised/features/kings-square.webp",          // inside King's College (cambs)
+    "/assets/images/features/headshot.webp",              // Main classic photo - awards
+    "/assets/images/features/djanogly.webp",              // Outside Jubilee DLRC (notts)
+    "/assets/images/features/jess.webp",                  // Inside Caius! (Cambs)
+    "/assets/images/features/computerphile.webp",         // near Play Button (notts)
+    "/assets/images/features/caribou.webp",               // below Canadian Caribou
+    "/assets/images/features/kings-square.webp",          // inside King's College (cambs)
 ];
 
 /**
