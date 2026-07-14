@@ -4,14 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     enableHoverEffects();
 
     // Render name typing
-
     const windowName: string = window.location.pathname;
-    if (windowName == "/" || windowName == "/now") // index
+    if (windowName == "/")
     {
-        typeText(document.querySelector<HTMLElement>("#typed-text"), charlist_name)
-    }
-    else if (windowName == "/things") {
-        typeText(document.querySelector<HTMLElement>("#typed-text-thingsdone"), charlist_things_done)
+        const typedTextElement = document.querySelector<HTMLElement>("#typed-text");
+        if (typedTextElement) typeText(typedTextElement, charlist_name);
     }
     console.log(windowName)
 });
@@ -41,7 +38,8 @@ function typeText(element: HTMLElement, charlist: string[]) {
     }
 
     setTimeout(() => {
-        document.querySelector<HTMLElement>(".cursor").style.display = "none";
+        const cursor = document.querySelector<HTMLElement>(".cursor");
+        if (cursor) cursor.style.display = "none";
     }, 5500);
 }
 
@@ -56,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     repopulateGrid("coolness");
 
     const selector = document.querySelector<HTMLInputElement>("#orderByLabel");
+    if (!selector) return;
+
     selector.addEventListener('change', function () {
         const selectedValue = this.value;
         console.log("Selected order: " + selectedValue);

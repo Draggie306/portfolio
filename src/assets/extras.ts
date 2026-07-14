@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render name typing
 
-    if (window.location.pathname == "/things") {
-        typeText(document.querySelector<HTMLElement>("#typed-text-thingsdone"), charlist_things_done);
-    }
-    else if (window.location.pathname == "/about") {
+    if (window.location.pathname == "/about") {
         console.log("Starting photo rotator on about page");
         cyclePortraitPhotos(); // Start the photo rotator
     }
@@ -45,7 +42,8 @@ function typeText(element: HTMLElement, charlist: string[]) {
     }
 
     setTimeout(() => {
-        document.querySelector<HTMLElement>(".cursor").style.display = "none";
+        const cursor = document.querySelector<HTMLElement>(".cursor");
+        if (cursor) cursor.style.display = "none";
     }, 5500);
 }
 
