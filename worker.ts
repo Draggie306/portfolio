@@ -13,6 +13,21 @@ export default {
     async fetch(request: Request, env: { ASSETS: { fetch: (arg0: string) => any; }; SUPER_SECRET_AUTH_TOKEN: string | null; }, ctx: any) {
         const url = new URL(request.url);
 
+        if (url.hostname === "oling.dev" || url.hostname === "www.oling.dev") {
+            url.protocol = "https:";
+            url.hostname = "oliverling.uk";
+
+            return Response.redirect(url.toString(), 301);
+        }
+
+        if (url.hostname === "www.oliverling.uk") {
+            url.protocol = "https:";
+            url.hostname = "oliverling.uk";
+
+            return Response.redirect(url.toString(), 301);
+        }
+
+
         const path = url.pathname;
         console.log(`Request for path: ${path}`);
 
