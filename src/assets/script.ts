@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render name typing
     const windowName: string = window.location.pathname;
-    if (windowName == "/")
+    if (windowName == "/" || windowName.endsWith("index.html") || windowName == "/src/")
     {
         const typedTextElement = document.querySelector<HTMLElement>("#typed-text");
         if (typedTextElement) typeText(typedTextElement, charlist_name);

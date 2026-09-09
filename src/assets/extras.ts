@@ -65,7 +65,7 @@ const photos: string[] = [
  */
 function preloadImage(url: string) {
    var img=new Image();
-   img.src="/assets/images/features/" + url;
+   img.src="./assets/images/features/" + url;
    console.log("Preloaded image: " + url);
 }
 
